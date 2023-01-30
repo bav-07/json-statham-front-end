@@ -6,9 +6,10 @@ const MovieContainer = () => {
     const [reviews, setReviews] = useState([])
     useEffect (() => {
         const fetchData = async () => {
-            const response = await fetch ("https://localhost:8080/reviews");
+            const response = await fetch ("http://localhost:8080/reviews");
             const data = await response.json();
             setReviews(data)
+            //console.log(data)
         }
         fetchData()
     }, [])
