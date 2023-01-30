@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import UserList from "../components/UserList";
 
 
 const LeaderboardContainer = () => {
@@ -16,6 +17,7 @@ const LeaderboardContainer = () => {
 
     return (  
         <>
+            <UserList users={users}/>
         </>
     );
 }

@@ -9,18 +9,11 @@ const MovieList = ({ movies }) => {
         setSearchTerm(event.target.value)
     }
 
-    const movieComponents = movies.filter((movie =>
-        movie.title.toLowerCase().includes(searchTerm.toLowerCase())||  movie.genre.toLowerCase().includes(searchTerm.toLowerCase()))).map(movie => {
-       
-
-    
-    return <MovieCard 
-            movie={movie}
-
-            />
-
-
-   }) 
+    const movieComponents = movies.filter(movie => {
+        return movie.title.toLowerCase().includes(searchTerm.toLowerCase()) || movie.genre.toLowerCase().includes(searchTerm.toLowerCase())
+    }).map(movie => {
+        return <MovieCard movie={movie} key={movie.id}/>
+    }) 
     
     return (  
         <>
@@ -29,7 +22,7 @@ const MovieList = ({ movies }) => {
                     onChange={handleChange}
                     value={searchTerm}
                     placeholder="Search by title or genre..."
-                    ></input>
+                ></input>
             </form>
             {movieComponents}
         </>
