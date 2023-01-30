@@ -17,14 +17,14 @@ function App() {
           <li><Link to="/login">Login</Link></li>
         </ul>
       </header>
-      <body>
+      <div>
         <Routes>
           <Route path="/" element={<HomeContainer />} />
           <Route path="/about" element={<AboutContainer />} />
           <Route path="/leaderboard" element={<LeaderboardContainer />} />
           <Route path="/login" element={<LoginContainer />} />
         </Routes>
-      </body>
+      </div>
       <footer>
 
       </footer>
