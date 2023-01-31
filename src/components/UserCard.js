@@ -2,7 +2,7 @@ const UserCard = ({user}) => {
 
     const reviewComponents = user.reviews.map(review => {
         return (
-            <div className="reviewByUser">
+            <div className="reviewByUser" key={review.id}>
                 <h4>{review.movie.title}</h4>
                 <p>{review.reviewBody}</p>
                 <h4>{review.rating / 2}</h4>
