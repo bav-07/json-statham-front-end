@@ -49,8 +49,8 @@ const MovieContainer = ({movies}) => {
         <>
             <div>
                 {/* <h2>{movie.title}</h2> */}
-                <Movie movieData={movieData} averageRating={averageRating} reviews={reviews}/>
-                <ReviewList />
+                <Movie movieData={movieData} averageRating={averageRating} />
+                <ReviewList reviews={reviews} />
             </div>
         </>
       );

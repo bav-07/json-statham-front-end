@@ -1,4 +1,4 @@
-const Movie = ({movieData, averageRating, reviews}) => {
+const Movie = ({movieData, averageRating}) => {
     
     return (  
         <>
