@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
 const MovieCard = ({movie}) => {
+    
+    
+    
     return (  
         <>
         <h4> {movie.title}</h4> 

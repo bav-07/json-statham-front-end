@@ -5,7 +5,7 @@ import ReviewList from "../components/ReviewsList";
 import ReviewForm from "../components/ReviewForm";
 
 
-const MovieContainer = ({movies}) => {
+const MovieContainer = ({movies, user}) => {
 
     const { id } = useParams();
     //console.log(id);
@@ -54,6 +54,16 @@ const MovieContainer = ({movies}) => {
     
     console.log(movieData);
 
+    const postReview = async (newReview) => {
+        const response = await fetch("http://localhost:8080/reviews", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newReview)
+        })
+        const savedReview = await response.json()
+        setReviews([...reviews, savedReview])
+    }
+
     // Find average rating for movie based on review scores
     const averageRating = reviews.reduce((accumulator, currentReview) => accumulator + currentReview.rating, 0) / reviews.length;
     console.log(averageRating);
@@ -63,6 +73,7 @@ const MovieContainer = ({movies}) => {
             <div>
                 {selectedMovie ? <>
                     <Movie movieData={movieData} averageRating={averageRating} />
+                    <ReviewForm movie={selectedMovie} postReview={postReview} user={user}/>
                     <ReviewList reviews={reviews} />
                 </>
                 : ""}
