@@ -32,7 +32,7 @@ const ReviewForm = ({movie, postReview, user}) => {
         <>
             <form onSubmit={handleFormSubmit}>
                 <h3>Add a review</h3>
-                <label for="rating">Rating: </label>
+                <label htmlFor="rating">Rating: </label>
                 <input
                     type="number"
                     name="rating"
