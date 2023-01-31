@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Movie from "../components/Movie";
 import ReviewList from "../components/ReviewsList";
+import ReviewForm from "../components/ReviewForm";
 
 
-const MovieContainer = ({movies}) => {
+const MovieContainer = ({movies, user}) => {
 
     const { id } = useParams() 
     //console.log(id);
@@ -25,7 +26,17 @@ const MovieContainer = ({movies}) => {
             setReviews(data)    
         }
         fetchData()
-    }, [])
+    }, [movie.title])
+
+    const postReview = async (newReview) => {
+        const response = await fetch("http://localhost:8080/reviews", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newReview)
+        })
+        const savedReview = await response.json()
+        setReviews([...reviews, savedReview])
+    }
 
     const [movieData, setMovieData] = useState({})
 
@@ -37,7 +48,7 @@ const MovieContainer = ({movies}) => {
             setMovieData(data);
         }
         fetchData()
-    }, [])
+    }, [movie.title, movie.year])
     
     console.log(movieData);
 
@@ -50,7 +61,9 @@ const MovieContainer = ({movies}) => {
             <div>
                 {/* <h2>{movie.title}</h2> */}
                 <Movie movieData={movieData} averageRating={averageRating} />
-                <ReviewList reviews={reviews} />
+                <ReviewForm movie={movie} postReview={postReview} user={user} />
+                {/* add user as a prop into ReviewList */}
+                <ReviewList reviews={reviews}  />
             </div>
         </>
       );

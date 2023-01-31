@@ -9,7 +9,7 @@ const MovieCard = ({movie}) => {
         <p>{movie.year}</p> 
 
         <button>
-            <Link to={`/movie/${movie.title}`}>Edit </Link>
+            <Link to={`/movie/${movie.title}`}>More Info </Link>
         </button>
        
         

@@ -4,9 +4,23 @@ import HomeContainer from './containers/HomeContainer';
 import AboutContainer from './containers/AboutContainer';
 import LeaderboardContainer from './containers/LeaderboardContainer';
 import LoginContainer from './containers/LoginContainer';
-import MovieContainer from './containers/MovieContainer';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [user, setUser] = useState({});
+
+  // TEsTN
+  useEffect (() => {
+    const fetchData = async () => {
+        const response = await fetch (`http://localhost:8080/users/?name=John`);
+        const data = await response.json();
+        console.log(data)
+        setUser(data[0])    
+    }
+    fetchData()
+  }, [])
+
   return (
     <BrowserRouter>
       <header>
@@ -20,10 +34,10 @@ function App() {
       </header>
       <div>
         <Routes>
-          <Route path="*" element={<HomeContainer />} />
+          <Route path="*" element={<HomeContainer user={user} />} />
           <Route path="/about" element={<AboutContainer />} />
           <Route path="/leaderboard" element={<LeaderboardContainer />} />
-          <Route path="/login" element={<LoginContainer />} />
+          <Route path="/login" element={<LoginContainer setUser={setUser}/>} />
         </Routes>
       </div>
       <footer>
