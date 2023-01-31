@@ -65,7 +65,13 @@ const MovieContainer = ({movies, user}) => {
     }
 
     // Find average rating for movie based on review scores
-    const averageRating = reviews.reduce((accumulator, currentReview) => accumulator + currentReview.rating, 0) / reviews.length;
+    let averageRating
+    if (reviews.length !== 0) {
+        averageRating = reviews.reduce((accumulator, currentReview) => accumulator + currentReview.rating, 0) / reviews.length;
+    }
+    else {
+        averageRating = 0;
+    }
     console.log(averageRating);
 
     return (
