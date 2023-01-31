@@ -20,11 +20,10 @@ function App() {
       </header>
       <div>
         <Routes>
-          <Route path="/" element={<HomeContainer />} />
+          <Route path="*" element={<HomeContainer />} />
           <Route path="/about" element={<AboutContainer />} />
           <Route path="/leaderboard" element={<LeaderboardContainer />} />
           <Route path="/login" element={<LoginContainer />} />
-          <Route path="/movie/:title" element={<MovieContainer />} />
         </Routes>
       </div>
       <footer>
