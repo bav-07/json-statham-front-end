@@ -5,87 +5,69 @@ import ReviewList from "../components/ReviewsList";
 import ReviewForm from "../components/ReviewForm";
 
 
-const MovieContainer = ({movies, user}) => {
+const MovieContainer = ({movies}) => {
 
-    const { title } = useParams() 
-    console.log(title);
+    const { id } = useParams();
+    //console.log(id);
 
-    const [selectedMovie, setSelectedMovie] = useState({});
+    const [selectedMovie, setSelectedMovie] = useState("");
+
+    useEffect(() => {
+        const movie = movies.find((movie) => {
+            return movie.title === id;
+        });
+        console.log("HI", movie)
+        setSelectedMovie(movie);
+    }, [movies, id])
 
     
     //console.log(movie);
-    let movie;
-    for (let i = 0 ; i < movies.length ; i++) {
-        if (movies[i].title === title) {
-            movie = movies[i];
-        }
-    }
-
-    setSelectedMovie(movie);
 
     const [reviews, setReviews] = useState([])
     
     useEffect (() => {
-
- 
-        
-        // const movie = movies.find((movie) => {
-        //     //const movieId = parseInt(id);
-        //     //console.log(movie.title);
-        //     return movie.title === title;
-        // });
-
-        // setSelectedMovie(movie);
-
-        if (movie.title) {
+        if (selectedMovie) {
+            console.log("FIRST", selectedMovie);
             const fetchData = async () => {
-                const response = await fetch (`http://localhost:8080/reviews/?movieTitle=${movie.title}`);
+                const response = await fetch (`http://localhost:8080/reviews/?movieTitle=${selectedMovie.title}`);
                 const data = await response.json();
                 setReviews(data)    
             }
             fetchData()
         }
-        
-    }, [])
+    }, [selectedMovie])
 
     const [movieData, setMovieData] = useState({})
 
     useEffect (() => {
-        const fetchData = async () => {
-            const response = await fetch (`http://www.omdbapi.com/?apikey=5b57696a&t=${selectedMovie.title}&y=${selectedMovie.year}`);
-            const data = await response.json();
-            console.log(data);
-            setMovieData(data);
+        if (selectedMovie) {
+            console.log("SECOND", selectedMovie);
+            const fetchData = async () => {
+                const response = await fetch (`http://www.omdbapi.com/?apikey=5b57696a&t=${selectedMovie.title}&y=${selectedMovie.year}`);
+                const data = await response.json();
+                console.log(data);
+                setMovieData(data);
+            }
+            fetchData()
         }
-        fetchData()
-    }, [])
+    }, [selectedMovie])
     
-    const postReview = async (newReview) => {
-        const response = await fetch("http://localhost:8080/reviews", {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(newReview)
-        })
-        const savedReview = await response.json()
-        setReviews([...reviews, savedReview])
-    }
-
-    // console.log(movieData);
+    console.log(movieData);
 
     // Find average rating for movie based on review scores
     const averageRating = reviews.reduce((accumulator, currentReview) => accumulator + currentReview.rating, 0) / reviews.length;
-    // console.log(averageRating);
+    console.log(averageRating);
 
     return (
         <>
             <div>
+                {selectedMovie ? <>
+                    <Movie movieData={movieData} averageRating={averageRating} />
+                    <ReviewList reviews={reviews} />
+                </>
+                : ""}
                 {/* <h2>{movie.title}</h2> */}
-                <Movie movieData={movieData} averageRating={averageRating} />
                 
-                { selectedMovie ? <ReviewForm movie={selectedMovie} postReview={postReview} user={user} /> : "" }
-                
-                {/* add user as a prop into ReviewList */}
-                <ReviewList reviews={reviews}  />
             </div>
         </>
       );
