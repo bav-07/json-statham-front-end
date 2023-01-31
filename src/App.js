@@ -4,6 +4,7 @@ import HomeContainer from './containers/HomeContainer';
 import AboutContainer from './containers/AboutContainer';
 import LeaderboardContainer from './containers/LeaderboardContainer';
 import LoginContainer from './containers/LoginContainer';
+import MovieContainer from './containers/MovieContainer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<AboutContainer />} />
           <Route path="/leaderboard" element={<LeaderboardContainer />} />
           <Route path="/login" element={<LoginContainer />} />
+          <Route path="/movie/:title" element={<MovieContainer />} />
         </Routes>
       </div>
       <footer>

@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const MovieCard = ({movie}) => {
     return (  
@@ -7,6 +7,10 @@ const MovieCard = ({movie}) => {
         <p>{movie.genre}</p> 
         <p>{movie.duration}</p> 
         <p>{movie.year}</p> 
+
+        <button>
+            <Link to={`/movie/${movie.title}`}>Edit </Link>
+        </button>
        
         
         </>
