@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 
 const MovieContainer = ({movie}) => {
+
+    const {title} = useParams() 
 
     const [reviews, setReviews] = useState([])
     useEffect (() => {
