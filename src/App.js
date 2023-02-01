@@ -40,18 +40,18 @@ function App() {
     <BrowserRouter>
     <div className='bg-hero bg-fixed'>
       <header className="flex flex-row justify-between  " >
-        <h1 className="text-3xl font-bold underline bg-cyan-400 w-min p-2 m-5 rounded-lg font-extrabold font:inherit">NotIMDb</h1>
+        <h1 className="text-3xl font-bold bg-cyan-400 w-min p-2 m-5 rounded-lg font-extrabold font-['Anton'] text-slate-900 tracking-wide">NotIMDb</h1>
         {/* {user !== "" ? <h3>Welcome, {user.name}!</h3> : <h3></h3>} */}
-        <ul className="flex flex-row">
+        <ul className="flex flex-row items-center">
           
             
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/leaderboard">Leaderboard</Link></li>
+          <li className=""><Link to="/">Home</Link></li>
+          <li className=""><Link to="/about">About</Link></li>
+          <li className=""><Link to="/leaderboard">Leaderboard</Link></li>
          
           </ul>
           
-          <ul className="flex flex-row">
+          <ul className="flex flex-row items-center">
       
           {/* <li><Link to="/login">{user !== "" ? <p>Logout</p> : <p>Login</p>}</Link></li> */}
           <li>{user === "" ? <Link to="/login">Login/Sign-up</Link> : <Link to="/login">Logout</Link>}</li>
