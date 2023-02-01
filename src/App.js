@@ -38,8 +38,9 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className='bg-hero bg-fixed w-screen'>
-      <header className="flex flex-row border-b-[1px] border-white/30 w-screen justify-between sticky top-0 backdrop-blur" >
+    <div className='bg-hero bg-fixed justify-center'>
+      <header className="flex flex-row border-b-[1px] border-white/30 justify-around self-center sticky top-0 backdrop-blur z-50" >
+        
         <Link to="/"><h1 className="text-3xl bg-gradient-to-r from-blue-400 to-cyan-400 p-2 m-5 rounded-lg font-extrabold font-['Anton'] text-slate-900 tracking-wide">notIMDb</h1></Link>
         {/* {user !== "" ? <h3>Welcome, {user.name}!</h3> : <h3></h3>} */}
         <ul className="flex flex-row items-center text-white justify-self-center justify-around w-4/12 pl-40 font-['Roboto'] font-light">
@@ -53,13 +54,14 @@ function App() {
           
         <ul className="flex flex-row items-center text-white justify-self-end justify-between w-2/12 pr-10 font-['Roboto'] font-light">
         
-            {/* <li><Link to="/login">{user !== "" ? <p>Logout</p> : <p>Login</p>}</Link></li> */}
-            <li className="transition-all hover:text-cyan-400 hover:underline underline-offset-4 decoration-1">{user === "" ? <Link to="/login">Login/Sign-up</Link> : <Link to="/login">Logout</Link>}</li>
-            <li className="transition-all hover:text-cyan-400 hover:underline underline-offset-4 decoration-1">{user === "" ? <p>Not logged in</p> : <p>User: {user.name}</p>}</li>
+          {/* <li><Link to="/login">{user !== "" ? <p>Logout</p> : <p>Login</p>}</Link></li> */}
+          <li className="transition-all hover:text-cyan-400 hover:underline underline-offset-4 decoration-1">{user === "" ? <Link to="/login">Login/Sign-up</Link> : <Link to="/login">Logout</Link>}</li>
+          <li className="transition-all hover:text-cyan-400 hover:underline underline-offset-4 decoration-1">{user === "" ? <p>Not logged in</p> : <p>User: {user.name}</p>}</li>
         
         </ul>
+      
       </header>
-      <div>
+      <div className='relative'>
         <Routes>
           <Route path="*" element={<HomeContainer user={user} fetchUserData={fetchUserData}/>} />
           <Route path="/about" element={<AboutContainer />} />
