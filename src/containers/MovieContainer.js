@@ -35,7 +35,7 @@ const MovieContainer = ({movies, user}) => {
             }
             fetchData()
         }
-    }, [selectedMovie])
+    }, [selectedMovie, user, reviews])
 
     const [movieData, setMovieData] = useState({})
 

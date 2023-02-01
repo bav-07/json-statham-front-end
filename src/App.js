@@ -23,14 +23,14 @@ function App() {
 
   const [users, setUsers] = useState([])
 
-    useEffect (() => {
-        const fetchData = async () => {
-            const response = await fetch ("http://localhost:8080/users");
-            const data = await response.json();
-            setUsers(data)
-        }
-        fetchData()
-    }, [])
+  useEffect (() => {
+      const fetchData = async () => {
+          const response = await fetch ("http://localhost:8080/users");
+          const data = await response.json();
+          setUsers(data)
+      }
+      fetchData()
+  }, [user])
 
   return (
     <BrowserRouter>
