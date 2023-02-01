@@ -17,7 +17,7 @@ const LoginForm = ({users, setUser}) => {
         
         // console.log(event.target.userName.value);   
         
-        if (users.map(user => user.name.toLowerCase()).incudles(event.target.userName.value.toLowerCase())) {
+        if (users.map(user => user.name.toLowerCase()).includes(event.target.userName.value.toLowerCase())) {
             const loggedInUser = (users.find(user => user.name.toLowerCase() === event.target.userName.value.toLowerCase()))
             console.log(loggedInUser)
             setUser(loggedInUser);
