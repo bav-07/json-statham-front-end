@@ -7,20 +7,22 @@ const HomeContainer = ({user, fetchUserData}) => {
 
     const [movies, setMovies] = useState([])
 
+
+    const fetchMovieData = async () => {
+        const response = await fetch ("http://localhost:8080/movies");
+        const data = await response.json();
+        setMovies(data)
+    }
+
     useEffect (() => {
-        const fetchData = async () => {
-            const response = await fetch ("http://localhost:8080/movies");
-            const data = await response.json();
-            setMovies(data)
-        }
-        fetchData()
+        fetchMovieData()
     }, [])
 
     return (  
         <>
             <Routes>
                 <Route path="/" element={< MovieList movies={movies} />} />
-                <Route path="/movie/:id" element={<MovieContainer movies={movies} user={user} fetchUserData={fetchUserData}/>} />
+                <Route path="/movie/:id" element={<MovieContainer movies={movies} user={user} fetchUserData={fetchUserData} fetchMovieData={fetchMovieData}/>} />
             </Routes>
         </>
     );

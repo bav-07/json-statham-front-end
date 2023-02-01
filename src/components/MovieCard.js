@@ -17,6 +17,14 @@ const MovieCard = ({movie}) => {
             fetchData()
         }
     }, [movie])
+
+    let averageRating
+    if (movie.reviews.length !== 0) {
+        averageRating = movie.reviews.reduce((accumulator, currentReview) => accumulator + currentReview.rating, 0) / movie.reviews.length;
+    }
+    else {
+        averageRating = 0;
+    }
     
     return (  
         <>
@@ -25,7 +33,8 @@ const MovieCard = ({movie}) => {
             <h4> {movie.title}</h4> 
             <p>{movie.genre}</p> 
             <p>{movie.duration}</p> 
-            <p>{movie.year}</p> 
+            <p>{movie.year}</p>
+            <p className="text-white">{(Math.round(averageRating*10)/10)}</p> 
 
             <button>
                 <Link to={`/movie/${movie.title}`}>More Info </Link>
