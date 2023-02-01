@@ -19,7 +19,7 @@ function App() {
   //       setUser(data[0])    
   //   }
   //   fetchData()
-  // }, []).
+  // }, [])
 
   const [users, setUsers] = useState([])
 
@@ -39,9 +39,10 @@ function App() {
   return (
     <BrowserRouter>
       <header>
-        <h1>DefinitelyNotIMDB</h1>
+        <h1 className="text-3xl font-bold underline bg-cyan-400 w-min">NotIMDb</h1>
         {user !== "" ? <h3>Welcome, {user.name}!</h3> : <h3>Welcome!</h3>}
-        <ul>
+        <ul className="flex flex-row">
+
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/leaderboard">Leaderboard</Link></li>
