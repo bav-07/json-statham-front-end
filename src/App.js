@@ -19,7 +19,7 @@ function App() {
   //       setUser(data[0])    
   //   }
   //   fetchData()
-  // }, [])
+  // }, []).
 
   const [users, setUsers] = useState([])
 
