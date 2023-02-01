@@ -17,16 +17,17 @@ const MovieList = ({ movies }) => {
     
     return (  
         <>
-        <div className=" flex justify-center w-screen">
-            <form className="movieForm mt-70">
-                <input className="searchBar"
+        <div className="grid flex-col justify-items-center w-screen h-[10vw]">
+            {/* <h2 className=" justify-self-center p-50 self-center font-['Inter'] text-slate-100 font-extrabold text-7xl tracking-tighter">Search for movies.</h2> */}
+            <form className="movieForm self-center">
+                <input className="searchBar p-5 rounded-full w-[50vw] drop-shadow-lg font-['Inter'] font-light"
                     onChange={handleChange}
                     value={searchTerm}
                     placeholder="Search by title or genre..."
                 ></input> 
             </form>
-            </div>
-            {movieComponents}
+        </div>
+        {movieComponents}
        </>
     );
 }

@@ -40,7 +40,7 @@ function App() {
     <BrowserRouter>
     <div className='bg-hero bg-fixed w-screen'>
       <header className="flex flex-row border-b-[1px] border-white/30 w-screen justify-between sticky top-0 backdrop-blur" >
-        <h1 className="text-3xl bg-cyan-400 p-2 m-5 rounded-lg font-extrabold font-['Anton'] text-slate-900 tracking-wide">notIMDb</h1>
+        <Link to="/"><h1 className="text-3xl bg-gradient-to-r from-blue-400 to-cyan-400 p-2 m-5 rounded-lg font-extrabold font-['Anton'] text-slate-900 tracking-wide">notIMDb</h1></Link>
         {/* {user !== "" ? <h3>Welcome, {user.name}!</h3> : <h3></h3>} */}
         <ul className="flex flex-row items-center text-white justify-self-center justify-around w-4/12 pl-40 font-['Roboto'] font-light">
           
