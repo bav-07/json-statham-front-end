@@ -15,10 +15,9 @@ const LoginForm = ({users, setUser}) => {
     const handleFormSubmit = (event) => {
         event.preventDefault();
         
-        // console.log(event.target.userName.value);
-            
+        // console.log(event.target.userName.value);   
         
-        if (users.map(user => user.name.toLowerCase()).includes(event.target.userName.value.toLowerCase())) {
+        if (users.map(user => user.name.toLowerCase()).incudles(event.target.userName.value.toLowerCase())) {
             const loggedInUser = (users.find(user => user.name.toLowerCase() === event.target.userName.value.toLowerCase()))
             console.log(loggedInUser)
             setUser(loggedInUser);
@@ -27,9 +26,7 @@ const LoginForm = ({users, setUser}) => {
         else {
             setLogInFailed(true);
         }
-
     }
-
     
     return (  
 
