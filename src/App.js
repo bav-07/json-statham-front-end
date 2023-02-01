@@ -38,12 +38,9 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className="bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-900 via-cyan-1200 to-cyan-400 bg-grid-slate-200/[0.04]">
+    <div className='bg-hero bg-fixed'>
       <header className="flex flex-row  " >
         <h1 className="text-3xl font-bold underline bg-cyan-400 w-min p-2 m-5 rounded-lg font-extrabold font:inherit">NotIMDb</h1>
-        <button className="m-4 p-2 rounded-full from-rose-400 via-fuchsia-500 to-indigo-500 bg-gradient-to-r">
-  <span className="block text-black px-5 py-5 font-semibold rounded-full bg-white hover:bg-transparent hover:text-white transition">Follow Me</span>
-</button>
         {user !== "" ? <h3>Welcome, {user.name}!</h3> : <h3></h3>}
         <ul className="flex flex-row">
 
