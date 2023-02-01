@@ -51,7 +51,7 @@ function App() {
           <Route path="*" element={<HomeContainer user={user} />} />
           <Route path="/about" element={<AboutContainer />} />
           <Route path="/leaderboard" element={<LeaderboardContainer users={users}/>} />
-          <Route path="/login" element={<LoginContainer users={users} setUser={setUser}/>} />
+          <Route path="/login" element={<LoginContainer users={users} setUser={setUser} setUsers={setUsers}/>} />
         </Routes>
       </div>
       <footer>

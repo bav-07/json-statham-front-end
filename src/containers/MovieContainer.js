@@ -79,7 +79,7 @@ const MovieContainer = ({movies, user}) => {
             <div>
                 {selectedMovie ? <>
                     <Movie movieData={movieData} averageRating={averageRating} />
-                    <ReviewForm movie={selectedMovie} postReview={postReview} user={user}/>
+                    {user !== "" ? <ReviewForm movie={selectedMovie} postReview={postReview} user={user}/> : <h3>You must be logged in to leave a review.</h3>}
                     <ReviewList reviews={reviews} />
                 </>
                 : ""}

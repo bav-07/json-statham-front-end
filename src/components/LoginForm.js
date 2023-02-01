@@ -35,7 +35,7 @@ const LoginForm = ({users, setUser}) => {
 
         <>
             <form className="logInForm" onSubmit={handleFormSubmit}>
-                <h2>Log In</h2>
+                <h2>Already have an account? Log in</h2>
                 <input
                     type="text"
                     placeholder="Your name"
