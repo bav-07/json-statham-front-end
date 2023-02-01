@@ -38,9 +38,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <header>
-        <h1 className="text-3xl font-bold underline bg-cyan-400 w-min">NotIMDb</h1>
-        {user !== "" ? <h3>Welcome, {user.name}!</h3> : <h3>Welcome!</h3>}
+    <div className="bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+      <header className="flex flex-row  " >
+        <h1 className="text-3xl font-bold underline bg-cyan-400 w-min p-2 m-5 rounded-lg font-extrabold font:inherit">NotIMDb</h1>
+        {user !== "" ? <h3>Welcome, {user.name}!</h3> : <h3></h3>}
         <ul className="flex flex-row">
 
           <li><Link to="/">Home</Link></li>
@@ -62,6 +63,8 @@ function App() {
       <footer>
 
       </footer>
+
+      </div>
     </BrowserRouter>
   );
 }
