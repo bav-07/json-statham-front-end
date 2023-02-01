@@ -58,7 +58,7 @@ const SignUpForm = ({users, setUser, setUsers}) => {
                     onChange={handleChange}
                     value={stateUser.name}
                 />
-                <button type="submit">Log In</button>
+                <button type="submit">Sign Up</button>
             </form>
             {signUpFailed ? <p className="logInFailed">An account with this name already exists. Please choose a different name.</p> : ""}
         </>
