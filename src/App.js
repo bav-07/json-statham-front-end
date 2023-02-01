@@ -23,13 +23,17 @@ function App() {
 
   const [users, setUsers] = useState([])
 
+
+  const fetchUserData = async () => {
+            const response = await fetch ("http://localhost:8080/users");
+            const data = await response.json();
+            console.log(data);
+            setUsers(data)
+        }
+
   useEffect (() => {
-      const fetchData = async () => {
-          const response = await fetch ("http://localhost:8080/users");
-          const data = await response.json();
-          setUsers(data)
-      }
-      fetchData()
+      
+      fetchUserData()
   }, [user])
 
   return (
@@ -48,7 +52,7 @@ function App() {
       </header>
       <div>
         <Routes>
-          <Route path="*" element={<HomeContainer user={user} />} />
+          <Route path="*" element={<HomeContainer user={user} fetchUserData={fetchUserData}/>} />
           <Route path="/about" element={<AboutContainer />} />
           <Route path="/leaderboard" element={<LeaderboardContainer users={users}/>} />
           <Route path="/login" element={<LoginContainer users={users} setUser={setUser} setUsers={setUsers}/>} />

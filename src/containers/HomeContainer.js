@@ -3,7 +3,7 @@ import MovieList from "../components/MovieList";
 import { Route, Routes } from "react-router-dom";
 import MovieContainer from "./MovieContainer";
 
-const HomeContainer = ({user}) => {
+const HomeContainer = ({user, fetchUserData}) => {
 
     const [movies, setMovies] = useState([])
 
@@ -20,7 +20,7 @@ const HomeContainer = ({user}) => {
         <>
             <Routes>
                 <Route path="/" element={< MovieList movies={movies} />} />
-                <Route path="/movie/:id" element={<MovieContainer movies={movies} user={user}/>} />
+                <Route path="/movie/:id" element={<MovieContainer movies={movies} user={user} fetchUserData={fetchUserData}/>} />
             </Routes>
         </>
     );

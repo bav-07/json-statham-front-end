@@ -5,7 +5,7 @@ import ReviewList from "../components/ReviewsList";
 import ReviewForm from "../components/ReviewForm";
 
 
-const MovieContainer = ({movies, user}) => {
+const MovieContainer = ({movies, user, fetchUserData}) => {
 
     const { id } = useParams();
     //console.log(id);
@@ -16,7 +16,7 @@ const MovieContainer = ({movies, user}) => {
         const movie = movies.find((movie) => {
             return movie.title === id;
         });
-        console.log("HI", movie)
+        // console.log("HI", movie)
         setSelectedMovie(movie);
     }, [movies, id])
 
@@ -27,7 +27,7 @@ const MovieContainer = ({movies, user}) => {
     
     useEffect (() => {
         if (selectedMovie) {
-            console.log("FIRST", selectedMovie);
+            // console.log("FIRST", selectedMovie);
             const fetchData = async () => {
                 const response = await fetch (`http://localhost:8080/reviews/?movieTitle=${selectedMovie.title}`);
                 const data = await response.json();
@@ -41,7 +41,7 @@ const MovieContainer = ({movies, user}) => {
 
     useEffect (() => {
         if (selectedMovie) {
-            console.log("SECOND", selectedMovie);
+            // console.log("SECOND", selectedMovie);
             const fetchData = async () => {
                 const response = await fetch (`http://www.omdbapi.com/?apikey=5b57696a&t=${selectedMovie.title}&y=${selectedMovie.year}`);
                 const data = await response.json();
@@ -52,7 +52,7 @@ const MovieContainer = ({movies, user}) => {
         }
     }, [selectedMovie])
     
-    console.log(movieData);
+    // console.log(movieData);
 
     const postReview = async (newReview) => {
         const response = await fetch("http://localhost:8080/reviews", {
@@ -62,7 +62,9 @@ const MovieContainer = ({movies, user}) => {
         })
         const savedReview = await response.json()
         setReviews([...reviews, savedReview])
+        fetchUserData()
     }
+
 
     // Find average rating for movie based on review scores
     let averageRating
@@ -72,7 +74,7 @@ const MovieContainer = ({movies, user}) => {
     else {
         averageRating = 0;
     }
-    console.log(averageRating);
+    // console.log(averageRating);
 
     return (
         <>
