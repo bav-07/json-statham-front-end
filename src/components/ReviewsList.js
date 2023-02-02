@@ -3,13 +3,13 @@ import Review from "./Review";
 const ReviewList = ({ reviews }) => {
 
     const reviewComponents = reviews.map(review => {
-    return <Review review={review} />} )
+    return <Review review={review} />} ).reverse()
 
 
     return (  
-        <>
-        {reviewComponents}
-        </>
+        <div  className="w-[50vw] min-w-[700px] m-auto mt-[50px]">
+            {reviewComponents}
+        </div>
     );
 }
  
