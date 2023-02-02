@@ -5,12 +5,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { styled } from '@mui/material/styles'
+
 
 
 const LoginForm = ({users, setUser}) => {
@@ -23,6 +28,18 @@ const LoginForm = ({users, setUser}) => {
     const [logInFailed, setLogInFailed] = useState(false);
 
     //const [inputUser, setInputUser] = useState("");
+
+    const CustomTextfield = styled(TextField)((({darkMode}) => {
+      return {
+          // backgroundColor: '#0f172a00',
+          color: '#e8e8e8',
+          // padding: '20px',
+          // border: '0px',
+          '.MuiTextField-root': {},
+
+      }
+      
+  }))
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -43,19 +60,38 @@ const LoginForm = ({users, setUser}) => {
 
     return (  
 
-        <div className="h-full">
-     
-          <ThemeProvider theme={theme}>
-      
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <>
+         <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: '100vh', backgroundColor:'black'}}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} 
+              sx={{ backgroundImage: "url('https://tailwindcss.com/_next/static/media/blog-post-form-dark@90.5b274bea.jpg')",
+                color: 'white'
+            
+              }} 
+              square>
           <Box
             sx={{
-              my: 8,
+              my: 20,
               mx: 4,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              height: '100vh'
+            
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -64,8 +100,7 @@ const LoginForm = ({users, setUser}) => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <div className="w-1/2 p-4">
-            <Box component="form" onSubmit={handleFormSubmit}  sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1 }}>
                 <Grid item>
                   
                   {"Login"}
@@ -77,9 +112,13 @@ const LoginForm = ({users, setUser}) => {
                 fullWidth
                 id="userName"
                 label="Username"
-                name="UserName"
+                name="userName"
                 autoComplete="username"
                 autoFocus
+                style={{
+                  border: "1px solid",
+                  borderRadius: "5px"
+                }}
               />
               <Button
                 type="submit"
@@ -90,23 +129,64 @@ const LoginForm = ({users, setUser}) => {
                 Sign In
               </Button>
 
-                
-              <Grid container>
+                <Grid item>
+                  
+                    {"Or Sign Up"}
+                 
+                </Grid>
+
+                <TextField
+                    margin="normal"
+                    required={false}
+                    fullWidth
+                    id="SignUp"
+                    label="Sign Up"
+                    name="Sign Up"
+                    autoFocus
+                    style={{
+                      border: "1px solid",
+                      borderRadius: "5px"
+                    }}
+                  />
+            
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Sign Up
+                </Button>
+                <Grid container>
                 <Grid item xs>
                   
                 </Grid>
                 
               </Grid>
-              
              
             </Box>
-            </div>
-            {logInFailed ? <p className="logInFailed">User name not recognised. Don't have an account? Sign up!</p> : ""}
           </Box>
         </Grid>
-    </ThemeProvider> 
-    
-        </div>
+      </Grid>
+    </ThemeProvider>
+        
+            <form className="logInForm" onSubmit={handleFormSubmit}>
+                <h2>Already have an account? Log in</h2>
+                <input
+                    type="text"
+                    placeholder="Your name"
+                    name="userName"
+                    id="userName"
+                    // onChange={handleChange}
+                    // value={inputUser}
+                />
+                <button type="submit">Log In</button>
+            </form>
+            {logInFailed ? <p className="logInFailed">User name not recognised. Don't have an account? Sign up!</p> : ""}
+      
+
+        </>
+
     );
 }
 

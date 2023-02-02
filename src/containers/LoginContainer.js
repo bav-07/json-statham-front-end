@@ -8,10 +8,10 @@ const LoginContainer = ({users, setUser, setUsers}) => {
     return (  
         <>
         <div className="flex">
-            <div className="w-1/2">
+            {/* <div className="w-1/2">
                 <SignUpForm users={users} setUser={setUser} setUsers={setUsers}/>
-            </div>
-            <div className="w-1/2">
+            </div> */}
+            <div className="w-full">
                 <LoginForm users={users} setUser={setUser}/>
             </div>
         </div>
