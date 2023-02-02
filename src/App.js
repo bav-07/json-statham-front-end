@@ -1,6 +1,8 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomeContainer from './containers/HomeContainer';
+import MovieContainer from './containers/MovieContainer';
+import MovieList from './components/MovieList';
 import AboutContainer from './containers/AboutContainer';
 import LeaderboardContainer from './containers/LeaderboardContainer';
 import LoginContainer from './containers/LoginContainer';
@@ -51,6 +53,20 @@ function App() {
       fetchUserData()
   }, [user])
 
+  const [movies, setMovies] = useState([])
+
+
+  const fetchMovieData = async () => {
+      const response = await fetch ("http://localhost:8080/movies");
+      const data = await response.json();
+      setMovies(data)
+  }
+
+  useEffect (() => {
+      fetchMovieData()
+  }, [])
+
+
   return (
 
     <BrowserRouter>
@@ -84,8 +100,13 @@ function App() {
       </header>
       <div className='relative'>
         <Routes>
-          <Route path="*" element={<Video />} />
-          <Route path="/popular" element={<HomeContainer user={user} fetchUserData={fetchUserData}/>} />
+          <Route path="/" element={<Video />} />
+          {/* <Route path="/popular" element={<HomeContainer user={user} fetchUserData={fetchUserData}/>} > */}
+            {/* <Routes> */}
+                <Route path="/popular" element={< MovieList movies={movies} />} />
+                <Route path="/movie/:id" element={<MovieContainer movies={movies} user={user} fetchUserData={fetchUserData} fetchMovieData={fetchMovieData}/>} />
+            {/* </Routes> */}
+          {/* </Routes></Route> */}
           <Route path="/about" element={<AboutContainer />} />
           <Route path="/leaderboard" element={<LeaderboardContainer users={users}/>} />
           <Route path="/login" element={<LoginContainer users={users} setUser={setUser} setUsers={setUsers}/>} />
