@@ -5,9 +5,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -48,7 +45,7 @@ const LoginForm = ({users, setUser}) => {
 
         <>
           <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      {/* <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
           item
@@ -63,7 +60,7 @@ const LoginForm = ({users, setUser}) => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
-        />
+        /> */}
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -105,31 +102,7 @@ const LoginForm = ({users, setUser}) => {
                 Sign In
               </Button>
 
-                <Grid item>
-                  
-                    {"Or Sign Up"}
-                 
-                </Grid>
-
-            <TextField
-                margin="normal"
-                required={false}
-                fullWidth
-                id="SignUp"
-                label="Sign Up"
-                name="Sign Up"
-                autoFocus
                 
-              />
-        
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign Up
-              </Button>
               <Grid container>
                 <Grid item xs>
                   
@@ -141,7 +114,6 @@ const LoginForm = ({users, setUser}) => {
             {logInFailed ? <p className="logInFailed">User name not recognised. Don't have an account? Sign up!</p> : ""}
           </Box>
         </Grid>
-      </Grid>
     </ThemeProvider> 
         
             {/* <form className="logInForm" onSubmit={handleFormSubmit}>
