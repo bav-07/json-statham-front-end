@@ -83,17 +83,19 @@ const SignUpForm = ({users, setUser, setUsers}) => {
             </Typography>
             <Box component="form" onSubmit={handleFormSubmit}  sx={{ mt: 1 }}>
                 <Grid item>
-                  {"Login"}
+                  {"Sign Up"}
                 </Grid>
             <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="userName"
-                label="Username"
-                name="UserName"
+                id="name"
+                label="Sign Up"
+                name="name"
                 autoComplete="username"
                 autoFocus
+                onChange={handleChange}
+                value={stateUser.name}
               />
             <Button
                 type="submit"
