@@ -59,12 +59,12 @@ function App() {
   return (
 
     <BrowserRouter>
-    <div className='bg-heroLite dark:bg-hero bg-cover bg-fixed justify-center'>
+    <div className='bg-heroLite dark:bg-hero bg-cover bg-fixed justify-center min-h-screen'>
       <header className="flex flex-row border-b-[1px] border-white/30 justify-around self-center sticky top-0 backdrop-blur z-50" >
         
         <Link to="/"><h1 className="text-3xl bg-gradient-to-r from-blue-400 to-cyan-400 p-2 m-5 rounded-lg font-extrabold font-['Anton'] text-slate-900 tracking-wide">notIMDb</h1></Link>
         {/* {user !== "" ? <h3>Welcome, {user.name}!</h3> : <h3></h3>} */}
-        <ul className="flex flex-row items-center text-white justify-self-center justify-around w-1/2 font-['Inter'] font-light">
+        <ul className="flex flex-row items-center text-blue-500 dark:text-white justify-self-center justify-around w-1/2 font-['Inter'] font-light">
           
             
           <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/popular">Popular</Link></li>
@@ -97,7 +97,7 @@ function App() {
             {/* </Routes> */}
           {/* </Routes></Route> */}
           <Route path="/about" element={<AboutContainer />} />
-          <Route path="/leaderboard" element={<LeaderboardContainer users={users}/>} />
+          <Route path="/leaderboard" element={<LeaderboardContainer users={users} darkMode={darkMode}/>} />
           <Route path="/login" element={<LoginContainer users={users} setUser={setUser} setUsers={setUsers}/>} />
         </Routes>
       </div>
