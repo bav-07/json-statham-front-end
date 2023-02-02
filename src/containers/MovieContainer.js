@@ -82,7 +82,7 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
             <div className="w-screen grid">
                 {selectedMovie ? <>
                     <Movie movieData={movieData} averageRating={averageRating} />
-                    {user !== "" ? <ReviewForm movie={selectedMovie} postReview={postReview} user={user}/> : <h3>You must be logged in to leave a review.</h3>}
+                    {user !== "" ? <ReviewForm movie={selectedMovie} postReview={postReview} user={user}/> : <h3 className="mt-[30px] -mb-10 mx-auto w-fit rounded-lg bg-red-200/0 p-5 border-red-600 border-2 text-red-600">You must be logged in to leave a review.</h3>}
                     <ReviewList reviews={reviews} />
                 </>
                 : ""}
