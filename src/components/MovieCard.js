@@ -28,18 +28,22 @@ const MovieCard = ({movie}) => {
     
     return (  
         <>
-        <div className="movieCard">
-            <img src={movieData.Poster} alt={`${movieData.Title} movie poster`} className="cardImage"/> 
-            <h4> {movie.title}</h4> 
-            <p>{movie.genre}</p> 
-            <p>{movie.duration}</p> 
-            <p>{movie.year}</p>
-            <p className="text-white">{(Math.round(averageRating*10)/10)}</p> 
+        <Link to={`/movie/${movie.title}`}>
+        <div className="movieCard rounded-3xl h-[50vw] w-[30vw]">
+            <img className="cardImage rounded-3xl w-max object-scale-down hover:shadow-black shadow-2xl transition-all" src={movieData.Poster} alt={`${movieData.Title} movie poster`}/> 
+            
+            <h4 className="text-white font-bold font-['Roboto']"> {movie.title}</h4> 
+            <p className="text-cyan-600 font-light font-['Roboto']">{movie.genre}</p> 
+            {/* <p>{movie.duration}</p> 
+            <p>{movie.year}</p> */}
+            <p className="text-white bg-cyan-600 w-[60px] h-[60px] text-center text-3xl font-extrabold rounded-full p-[10px]">{(Math.round(averageRating*10)/10)}</p> 
 
             <button>
-                <Link to={`/movie/${movie.title}`}>More Info </Link>
+                More Info
             </button>
+            
         </div>
+        </Link>
         
        
         
