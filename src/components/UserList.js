@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserCard from "./UserCard";
 
-const UserList = ({users}) => {
+const UserList = ({users, darkMode}) => {
     
     const [searchTerm, setSearchTerm] = useState("");
     
@@ -14,19 +14,22 @@ const UserList = ({users}) => {
     ).filter((user) => {
         return user.name.toLowerCase().includes(searchTerm.toLowerCase())
     }).map(user => {
-        return <UserCard user={user} key={user.id}/>
+        return <UserCard user={user} key={user.id} darkMode={darkMode}/>
     })
 
     return (  
         <>
-            <form className="userForm">
-                <input className="userSearchBar"
+            <form className="userForm flex w-screen grid flex-col justify-items-center w-screen h-[10vw]">
+                <input className="userSearchBar searchBar m-auto p-5 rounded-full w-[50vw] drop-shadow-lg font-['Inter'] font-light"
                     onChange={handleChange}
                     value={searchTerm}
                     placeholder="Search by user name..."
                 ></input>
             </form>
-            {userComponents}
+            <div className="w-[50vw] m-auto">
+                {userComponents}
+            </div>
+            
         </>
     );
 }
