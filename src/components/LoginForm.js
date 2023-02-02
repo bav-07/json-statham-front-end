@@ -43,9 +43,7 @@ const LoginForm = ({users, setUser}) => {
 
     return (  
 
-        <>
-        <div className="flex flex-row">
-        <div className="w-1/2 p-4"> 
+        <div className="h-full">
      
           <ThemeProvider theme={theme}>
       
@@ -57,6 +55,7 @@ const LoginForm = ({users, setUser}) => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              height: '100vh'
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -106,9 +105,8 @@ const LoginForm = ({users, setUser}) => {
           </Box>
         </Grid>
     </ThemeProvider> 
-    </div>
-    </div>
-        </>
+    
+        </div>
     );
 }
 

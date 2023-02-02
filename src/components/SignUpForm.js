@@ -61,70 +61,67 @@ const SignUpForm = ({users, setUser, setUsers}) => {
     }
 
     return (  
-        <>
-        <div className="flex flex-row">
-        <div className="w-full p-4">   
-    <ThemeProvider theme={theme}>
-    <Grid container component="main" sx={{ height: '100vh' }}>
-    <CssBaseline />
-    
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
-            sx={{
-              my: 8,
-              mx: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <div className="flex w-1/2 p-100">
-            <Box component="form" onSubmit={handleFormSubmit}  sx={{ mt: 1 }}>
-                <Grid item>
-                  {"Sign Up"}
-                </Grid>
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="Sign Up"
-                name="name"
-                autoComplete="username"
-                autoFocus
-                onChange={handleChange}
-                value={stateUser.name}
-              />
-            <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign Up
-            </Button> 
-              <Grid container>
-                <Grid item xs> 
-                </Grid>  
-              </Grid> 
-            </Box>
-            </div>
-            {signUpFailed ? <p className="logInFailed">An account with this name already exists. Please choose a different name.</p> : ""}
-          </Box>
-        </Grid>
-      </Grid>
-      
-    </ThemeProvider> 
-    
-    </div>
-    </div>
-</>
+        <div className="w-[100vw]">
+          <ThemeProvider theme={theme}>
+            <Grid container component="main" sx={{ height: '100vh', width: '100vw' }}>
+              <CssBaseline />
+          
+              <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                <Box
+                  sx={{
+                    my: 8,
+                    mx: 4,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                  }}
+                >
+                  <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                    <LockOutlinedIcon />
+                  </Avatar>
+                  <Typography component="h1" variant="h5">
+                    Sign in
+                  </Typography>
+                  <div className="flex w-1/2 p-100">
+                  <Box component="form" onSubmit={handleFormSubmit}  sx={{ mt: 1 }}>
+                      <Grid item>
+                        {"Sign Up"}
+                      </Grid>
+                  <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="name"
+                      label="Sign Up"
+                      name="name"
+                      autoComplete="username"
+                      autoFocus
+                      onChange={handleChange}
+                      value={stateUser.name}
+                    />
+                  <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                    >
+                      Sign Up
+                  </Button> 
+                    <Grid container>
+                      <Grid item xs> 
+                      </Grid>  
+                    </Grid> 
+                  </Box>
+                  </div>
+                  {signUpFailed ? <p className="logInFailed">An account with this name already exists. Please choose a different name.</p> : ""}
+                </Box>
+              </Grid>
+            </Grid>
+            
+          </ThemeProvider> 
+          
+          
+      </div>
 
 
     );

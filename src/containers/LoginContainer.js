@@ -7,8 +7,15 @@ const LoginContainer = ({users, setUser, setUsers}) => {
 
     return (  
         <>
-            <SignUpForm users={users} setUser={setUser} setUsers={setUsers}/>
-            <LoginForm users={users} setUser={setUser}/>
+        <div className="flex">
+            <div className="w-1/2">
+                <SignUpForm users={users} setUser={setUser} setUsers={setUsers}/>
+            </div>
+            <div className="w-1/2">
+                <LoginForm users={users} setUser={setUser}/>
+            </div>
+        </div>
+            
         </>
     );
 }
