@@ -29,7 +29,7 @@ const MovieList = ({ movies }) => {
         </div>
         {movieComponents}
        </>
-    );:
+    );
 }
  
 export default MovieList;

@@ -10,18 +10,24 @@ function App() {
 
   const [user, setUser] = useState("");
 
-  // TEsTN
-  // useEffect (() => {
-  //   const fetchData = async () => {
-  //       const response = await fetch (`http://localhost:8080/users/?name=John`);
-  //       const data = await response.json();
-  //       console.log(data)
-  //       setUser(data[0])    
-  //   }
-  //   fetchData()
-  // }, [])
+
 
   const [users, setUsers] = useState([])
+
+  const [darkMode, setDarkMode] = useState("light");
+
+  useEffect(() => {
+    if (darkMode === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const handleThemeSwitch = () => {
+    setDarkMode(darkMode === "dark" ? "light" : "dark");
+  };
+
 
 
   const fetchUserData = async () => {
@@ -38,7 +44,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className='bg-hero bg-fixed justify-center'>
+    <div className='bg-heroLite dark:bg-hero bg-cover bg-fixed justify-center'>
       <header className="flex flex-row border-b-[1px] border-white/30 justify-around self-center sticky top-0 backdrop-blur z-50" >
         
         <Link to="/"><h1 className="text-3xl bg-gradient-to-r from-blue-400 to-cyan-400 p-2 m-5 rounded-lg font-extrabold font-['Anton'] text-slate-900 tracking-wide">notIMDb</h1></Link>
@@ -68,6 +74,9 @@ function App() {
           <Route path="/leaderboard" element={<LeaderboardContainer users={users}/>} />
           <Route path="/login" element={<LoginContainer users={users} setUser={setUser} setUsers={setUsers}/>} />
         </Routes>
+        <button className="bg-green-200 p-4 rounded-3xl" onClick={handleThemeSwitch}>
+        Dark Mode
+      </button>
       </div>
       <footer>
 
