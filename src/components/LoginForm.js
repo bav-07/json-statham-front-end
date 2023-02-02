@@ -47,7 +47,7 @@ const LoginForm = ({users, setUser}) => {
     return (  
 
         <>
-         <ThemeProvider theme={theme}>
+         {/* <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -80,7 +80,7 @@ const LoginForm = ({users, setUser}) => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={handleFormSubmit}  sx={{ mt: 1 }}>
                 <Grid item>
                   
                   {"Login"}
@@ -95,6 +95,8 @@ const LoginForm = ({users, setUser}) => {
                 name="Username"
                 autoComplete="username"
                 autoFocus
+               onChange={handleChange}
+               value= {inputUser}
               />
               <Button
                 type="submit"
@@ -119,6 +121,7 @@ const LoginForm = ({users, setUser}) => {
                 label="Sign Up"
                 name="Sign Up"
                 autoFocus
+                
               />
         
               <Button
@@ -137,10 +140,11 @@ const LoginForm = ({users, setUser}) => {
               </Grid>
              
             </Box>
+            {logInFailed ? <p className="logInFailed">User name not recognised. Don't have an account? Sign up!</p> : ""}
           </Box>
         </Grid>
       </Grid>
-    </ThemeProvider>
+    </ThemeProvider> */}
         
             <form className="logInForm" onSubmit={handleFormSubmit}>
                 <h2>Already have an account? Log in</h2>
@@ -149,12 +153,12 @@ const LoginForm = ({users, setUser}) => {
                     placeholder="Your name"
                     name="userName"
                     id="userName"
-                    // onChange={handleChange}
-                    // value={inputUser}
+                     onChange={handleChange}
+                     value={inputUser}
                 />
                 <button type="submit">Log In</button>
             </form>
-            {logInFailed ? <p className="logInFailed">User name not recognised. Don't have an account? Sign up!</p> : ""}
+            
       
 
         </>
