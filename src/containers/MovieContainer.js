@@ -79,7 +79,7 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
 
     return (
         <>
-            <div>
+            <div className="w-screen grid">
                 {selectedMovie ? <>
                     <Movie movieData={movieData} averageRating={averageRating} />
                     {user !== "" ? <ReviewForm movie={selectedMovie} postReview={postReview} user={user}/> : <h3>You must be logged in to leave a review.</h3>}
