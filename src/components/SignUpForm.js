@@ -1,16 +1,7 @@
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Button from '@mui/material/Button'
+import LockOpenIcon from '@mui/icons-material/LockOpen';
 
 
 const SignUpForm = ({users, setUser, setUsers}) => {
@@ -24,8 +15,6 @@ const SignUpForm = ({users, setUser, setUsers}) => {
             "name": ""
         }
     )
-
-    const theme = createTheme()
 
     const handleChange = (event) => {
         let propertyName = event.target.name;
@@ -61,69 +50,27 @@ const SignUpForm = ({users, setUser, setUsers}) => {
     }
 
     return (  
-        <div className="w-[100vw]">
-          <ThemeProvider theme={theme}>
-            <Grid container component="main" sx={{ height: '100vh', width: '100vw' }}>
-              <CssBaseline />
-          
-              <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-                <Box
-                  sx={{
-                    my: 8,
-                    mx: 4,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center'
-                  }}
-                >
-                  <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                    <LockOutlinedIcon />
-                  </Avatar>
-                  <Typography component="h1" variant="h5">
-                    Sign in
-                  </Typography>
-                  <div className="flex w-1/2 p-100">
-                  <Box component="form" onSubmit={handleFormSubmit}  sx={{ mt: 1 }}>
-                      <Grid item>
-                        {"Sign Up"}
-                      </Grid>
-                  <TextField
-                      margin="normal"
-                      required
-                      fullWidth
-                      id="name"
-                      label="Sign Up"
-                      name="name"
-                      autoComplete="username"
-                      autoFocus
-                      onChange={handleChange}
-                      value={stateUser.name}
-                    />
-                  <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      sx={{ mt: 3, mb: 2 }}
-                    >
-                      Sign Up
-                  </Button> 
-                    <Grid container>
-                      <Grid item xs> 
-                      </Grid>  
-                    </Grid> 
-                  </Box>
-                  </div>
-                  {signUpFailed ? <p className="logInFailed">An account with this name already exists. Please choose a different name.</p> : ""}
-                </Box>
-              </Grid>
-            </Grid>
-            
-          </ThemeProvider> 
-          
-          
-      </div>
+        <div className="flex flex-col justify-center self-center h-fit w-[70%] bg-slate-800/20 backdrop-blur shadow-2xl p-20 text-center  mx-auto">
+            <form className="signUpForm flex flex-col justify-center font-['Inter']" onSubmit={handleFormSubmit}>
+              <div className="justify-center mb-3">
+                    <LockOpenIcon fontSize="large" className="text-white"/>
+                </div>
+                <h2 className="font-['Inter'] font-extrabold text-3xl tracking-tighter text-white">Sign up to react to your favourite movies and state your opinion</h2>
+                <input className="text-center my-[3vh] w-[100%] mx-auto p-5 rounded-lg font-['Inter']"
+                    type="text"
+                    placeholder="What's your name?"
+                    name="name"
+                    id="name"
+                    onChange={handleChange}
+                    value={stateUser.name}
+                />
 
-
+                <Button variant="contained" type="submit">Sign Up</Button>
+                
+                {/* <button className="font-['Inter'] uppercase tracking-widest p-4 bg-blue-500 text-white w-[30%] mx-auto rounded-lg" type="submit">Sign Up</button> */}
+            </form>
+            {signUpFailed ? <p className="logInFailed text-white font-['Inter'] p-4">An account with this name already exists. Please choose a different name.</p> : <p className="opacity-0 p-4">An account with this name already exists. Please choose a different name.</p>}
+        </div>
     );
 }
  

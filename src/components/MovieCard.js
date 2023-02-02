@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Rating from '@mui/material/Rating'
 
 const MovieCard = ({movie}) => {
     
@@ -36,6 +37,7 @@ const MovieCard = ({movie}) => {
             <div className="absolute transition-all top-0 p-5 opacity-0 group-hover:opacity-100 bg-gradient-to-b from-black via-gray-900 h-[18%] w-full">
                 <h4 className="text-white font-bold font-['Roboto']"> {movie.title}</h4> 
                 <p className="text-cyan-600 font-light font-['Roboto']">{movie.genre}</p>
+                <Rating name="star-rating" value={Math.round(averageRating*10)/10} precision={0.5} max={10} readOnly/>
 
             </div>
             </div>

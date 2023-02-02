@@ -8,10 +8,10 @@ const LoginContainer = ({users, setUser, setUsers}) => {
     return (  
         <>
         <div className="flex">
-            {/* <div className="w-1/2">
+            <div className="w-[50%] bg-[url('https://source.unsplash.com/random')] bg-cover flex">
                 <SignUpForm users={users} setUser={setUser} setUsers={setUsers}/>
-            </div> */}
-            <div className="w-full">
+            </div>
+            <div className="w-[50%]">
                 <LoginForm users={users} setUser={setUser}/>
             </div>
         </div>
