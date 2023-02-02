@@ -5,7 +5,7 @@ import ReviewList from "../components/ReviewsList";
 import ReviewForm from "../components/ReviewForm";
 
 
-const MovieContainer = ({movies, user, fetchUserData}) => {
+const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
 
     const { id } = useParams();
     //console.log(id);
@@ -63,6 +63,7 @@ const MovieContainer = ({movies, user, fetchUserData}) => {
         const savedReview = await response.json()
         setReviews([...reviews, savedReview])
         fetchUserData()
+        fetchMovieData()
     }
 
 
