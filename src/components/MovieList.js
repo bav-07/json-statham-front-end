@@ -30,8 +30,8 @@ const MovieList = ({ movies }) => {
         <div className="mt-8 pl-52 flex overflow-x-scroll whitespace-nowrap">
             {movieComponents}
         </div>
-        
-       </>
+        </>
+       
     );
 }
  
