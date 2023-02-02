@@ -24,6 +24,14 @@ const LoginForm = ({users, setUser}) => {
 
     setUser("");
 
+    const whiteTheme = createTheme({
+      palette: {
+        white: {
+          main: '#ffffff'
+        }
+      }
+    })
+
 
     const [logInFailed, setLogInFailed] = useState(false);
 
@@ -79,7 +87,7 @@ const LoginForm = ({users, setUser}) => {
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} 
-              sx={{ backgroundImage: "url('https://tailwindcss.com/_next/static/media/blog-post-form-dark@90.5b274bea.jpg')",
+              sx={{ backgroundImage: "radial-gradient(at right top, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234))",
                 color: 'white'
             
               }} 
@@ -100,26 +108,36 @@ const LoginForm = ({users, setUser}) => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1, "& .MuiOutlinedInput-root.Mui-disabled":{"& > fieldset": {border: '1px solid white'}}}}>
                 <Grid item>
                   
                   {"Login"}
                
                 </Grid>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="userName"
-                label="Username"
-                name="userName"
-                autoComplete="username"
-                autoFocus
-                style={{
-                  border: "1px solid",
-                  borderRadius: "5px"
-                }}
-              />
+              <ThemeProvider theme={whiteTheme}>
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="userName"
+                  label="Username"
+                  name="userName"
+                  autoComplete="username"
+                  autoFocus
+                  color="white"
+                  sx={{
+                    "& .MuiInputLabel-root": {color: 'white'},//styles the label
+                    "& .MuiOutlinedInput-root": {
+                      "& > fieldset": { borderColor: "white" },
+                    },
+                  }}
+                  style={{
+                    
+                    borderRadius: "5px"
+                  }}
+                />
+              </ThemeProvider>
+              
               <Button
                 type="submit"
                 fullWidth
@@ -135,7 +153,8 @@ const LoginForm = ({users, setUser}) => {
                  
                 </Grid>
 
-                <TextField
+                <ThemeProvider theme={whiteTheme}>
+                  <TextField
                     margin="normal"
                     required={false}
                     fullWidth
@@ -143,11 +162,15 @@ const LoginForm = ({users, setUser}) => {
                     label="Sign Up"
                     name="Sign Up"
                     autoFocus
+                    color="white"
+
+                    
                     style={{
-                      border: "1px solid",
                       borderRadius: "5px"
                     }}
                   />
+                </ThemeProvider>
+                
             
                 <Button
                   type="submit"
@@ -170,7 +193,7 @@ const LoginForm = ({users, setUser}) => {
       </Grid>
     </ThemeProvider>
         
-            <form className="logInForm" onSubmit={handleFormSubmit}>
+            {/* <form className="logInForm" onSubmit={handleFormSubmit}>
                 <h2>Already have an account? Log in</h2>
                 <input
                     type="text"
@@ -182,7 +205,7 @@ const LoginForm = ({users, setUser}) => {
                 />
                 <button type="submit">Log In</button>
             </form>
-            {logInFailed ? <p className="logInFailed">User name not recognised. Don't have an account? Sign up!</p> : ""}
+            {logInFailed ? <p className="logInFailed">User name not recognised. Don't have an account? Sign up!</p> : ""} */}
       
 
         </>
