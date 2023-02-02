@@ -10,6 +10,10 @@ import { useEffect, useState } from 'react';
 import * as React from 'react';
 import Switch from '@mui/material/Switch';
 import Video from './containers/Video';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 
 function App() {
@@ -102,7 +106,31 @@ function App() {
         </Routes>
       </div>
       <footer>
+      <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">NotIMDb™</a>  Credits to RunTime Terror .
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+        <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6 ">Popular</a>
+        </li>
+        <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6">Leaderboard</a>
+        </li>
+        <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline"></a>
+        </li>
+        <GitHubIcon/>
+        <InstagramIcon/>
+        <FacebookIcon/>
+        <LinkedInIcon/>
 
+
+
+    </ul>
+</footer>
       </footer>
 
       </div>
