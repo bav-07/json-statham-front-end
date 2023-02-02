@@ -62,9 +62,12 @@ const SignUpForm = ({users, setUser, setUsers}) => {
 
     return (  
         <>
+        <div className="flex flex-row">
+        <div className="w-full p-4">   
     <ThemeProvider theme={theme}>
     <Grid container component="main" sx={{ height: '100vh' }}>
     <CssBaseline />
+    
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -81,6 +84,7 @@ const SignUpForm = ({users, setUser, setUsers}) => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
+            <div className="flex w-1/2 p-100">
             <Box component="form" onSubmit={handleFormSubmit}  sx={{ mt: 1 }}>
                 <Grid item>
                   {"Sign Up"}
@@ -110,28 +114,19 @@ const SignUpForm = ({users, setUser, setUsers}) => {
                 </Grid>  
               </Grid> 
             </Box>
+            </div>
             {signUpFailed ? <p className="logInFailed">An account with this name already exists. Please choose a different name.</p> : ""}
           </Box>
         </Grid>
       </Grid>
+      
     </ThemeProvider> 
+    
+    </div>
+    </div>
+</>
 
 
-
-            {/* <form className="signUpForm" onSubmit={handleFormSubmit}>
-                <h2>Sign up to react to your favourite movies and state your opinion</h2>
-                <input
-                    type="text"
-                    placeholder="What's your name?"
-                    name="name"
-                    id="name"
-                    onChange={handleChange}
-                    value={stateUser.name}
-                />
-                <button type="submit">Sign Up</button>
-            </form>
-            {signUpFailed ? <p className="logInFailed">An account with this name already exists. Please choose a different name.</p> : ""} */}
-        </>
     );
 }
  
