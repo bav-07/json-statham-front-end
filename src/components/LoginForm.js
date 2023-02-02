@@ -5,9 +5,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -18,9 +15,8 @@ import { styled } from '@mui/material/styles'
 
 
 
-const LoginForm = ({users, setUser}) => {
+const LoginForm = ({users, setUser, setUsers}) => {
     
-    const navigate = useNavigate();
 
     setUser("");
 
@@ -34,6 +30,51 @@ const LoginForm = ({users, setUser}) => {
 
 
     const [logInFailed, setLogInFailed] = useState(false);
+
+    const navigate = useNavigate();
+
+    const [signUpFailed, setSignUpFailed] = useState(false);
+
+    const [stateUser, setStateUser] = useState(
+        {
+            "name": ""
+        }
+    )
+
+    const handleChange = (event) => {
+        let propertyName = event.target.name;
+
+        let copiedUser = {...stateUser};
+        copiedUser[propertyName] = event.target.value;
+        setStateUser(copiedUser);
+    }
+
+    const postUser = async (newUser) => {
+        const response = await fetch("http://localhost:8080/users", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newUser)
+        })
+        const savedUser = await response.json()
+        setUsers([...users, savedUser])
+        setUser(savedUser)
+    }
+
+    const handleSignupSubmit = (event) => {
+        event.preventDefault();
+        // console.log(event.target.userName.value);
+        
+        if (users.map(user => user.name.toLowerCase()).includes(event.target.name.value.toLowerCase())) {
+            setSignUpFailed(true);
+        }
+        else {
+            postUser(stateUser);
+            navigate("/");
+        }
+
+    }
+
+
 
     //const [inputUser, setInputUser] = useState("");
 
@@ -64,13 +105,19 @@ const LoginForm = ({users, setUser}) => {
             setLogInFailed(true);
         }
     }
+
+
+
+
+
+
     const theme = createTheme()
 
     return (  
 
         <>
          <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh', backgroundColor:'black'}}>
+        <Grid container component="main" sx={{ height: '100vh', backgroundColor:'black'}}>
         <CssBaseline />
         <Grid
           item
@@ -85,11 +132,10 @@ const LoginForm = ({users, setUser}) => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} 
+          />
+          <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} 
               sx={{ backgroundImage: "radial-gradient(at right top, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234))",
                 color: 'white'
-            
               }} 
               square>
           <Box
@@ -99,117 +145,90 @@ const LoginForm = ({users, setUser}) => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-            
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1, "& .MuiOutlinedInput-root.Mui-disabled":{"& > fieldset": {border: '1px solid white'}}}}>
-                <Grid item>
-                  
-                  {"Login"}
-               
-                </Grid>
-              <ThemeProvider theme={whiteTheme}>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="userName"
-                  label="Username"
-                  name="userName"
-                  autoComplete="username"
-                  autoFocus
-                  color="white"
-                  sx={{
-                    "& .MuiInputLabel-root": {color: 'white'},//styles the label
-                    "& .MuiOutlinedInput-root": {
-                      "& > fieldset": { borderColor: "white" },
-                    },
-                  }}
-                  style={{
-                    
-                    borderRadius: "5px"
-                  }}
-                />
-              </ThemeProvider>
-              
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
-
-                <Grid item>
-                  
-                    {"Or Sign Up"}
-                 
-                </Grid>
-
-                <ThemeProvider theme={whiteTheme}>
-                  <TextField
-                    margin="normal"
-                    required={false}
-                    fullWidth
-                    id="SignUp"
-                    label="Sign Up"
-                    name="Sign Up"
-                    autoFocus
-                    color="white"
-
-                    
-                    style={{
-                      borderRadius: "5px"
-                    }}
-                  />
-                </ThemeProvider>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1, "& .MuiOutlinedInput-root.Mui-disabled":{"& > fieldset": {border: '1px solid white'}}}}>
+          <Grid item>
+            {"Login"}
+          </Grid>
+          <ThemeProvider theme={whiteTheme}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="userName"
+              label="Username"
+              name="userName"
+              autoComplete="username"
+              autoFocus
+              color="white"
+              sx={{
+                "& .MuiInputLabel-root": {color: 'white'},//styles the label
+                "& .MuiOutlinedInput-root": {
+                  "& > fieldset": { borderColor: "white" },
+                },
+              }}
+              style={{
                 
-            
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Sign Up
-                </Button>
-                <Grid container>
-                <Grid item xs>
-                  
-                </Grid>
-                
-              </Grid>
-             
+                borderRadius: "5px"
+              }}
+            />
+          </ThemeProvider>  
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+          <Grid item>
+            {"Or Sign Up"}
+          </Grid>
+          <Box component="form"  onSubmit={handleSignupSubmit} sx={{ mt: 1, "& .MuiOutlinedInput-root.Mui-disabled":{"& > fieldset": {border: '1px solid white'}}}}>
+          <ThemeProvider theme={whiteTheme}>
+            <TextField
+              margin="normal"
+              required={false}
+              fullWidth
+              id="name"
+              label="Sign Up"
+              name="name"
+              autoComplete="username"
+              autoFocus
+              onChange={handleChange}
+              value={stateUser.name}
+              color="white"
+              style={{
+                borderRadius: "5px"
+              }}
+            />
+          </ThemeProvider>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Grid container>
+            <Grid item xs>      
+            </Grid>  
+            </Grid>
             </Box>
           </Box>
-        </Grid>
-      </Grid>
-    </ThemeProvider>
-        
-            {/* <form className="logInForm" onSubmit={handleFormSubmit}>
-                <h2>Already have an account? Log in</h2>
-                <input
-                    type="text"
-                    placeholder="Your name"
-                    name="userName"
-                    id="userName"
-                    // onChange={handleChange}
-                    // value={inputUser}
-                />
-                <button type="submit">Log In</button>
-            </form>
-            {logInFailed ? <p className="logInFailed">User name not recognised. Don't have an account? Sign up!</p> : ""} */}
-      
-
-        </>
-
+          </Box>
+          </Grid>
+          </Grid>
+        </ThemeProvider>
+       </>
     );
 }
 
