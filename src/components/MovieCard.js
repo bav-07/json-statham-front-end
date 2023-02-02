@@ -29,18 +29,20 @@ const MovieCard = ({movie}) => {
     return (  
         <>
         <Link to={`/movie/${movie.title}`}>
-        <div className="movieCard rounded-3xl h-[50vw] w-[30vw]">
-            <img className="cardImage rounded-3xl w-max object-scale-down hover:shadow-black shadow-2xl transition-all" src={movieData.Poster} alt={`${movieData.Title} movie poster`}/> 
+        <div className="movieCard rounded-3xl h-screen w-[15vw] relative mx-[20px]">
+            <div className="h-min group">
+            <img className="cardImage  w-full object-cover hover:shadow-black shadow-2xl transition-all" src={movieData.Poster} alt={`${movieData.Title} movie poster`}/> 
             
-            <h4 className="text-white font-bold font-['Roboto']"> {movie.title}</h4> 
-            <p className="text-cyan-600 font-light font-['Roboto']">{movie.genre}</p> 
+            <div className="absolute transition-all top-0 p-5 opacity-0 group-hover:opacity-100 bg-gradient-to-b from-black via-gray-900 h-[18%] w-full">
+                <h4 className="text-white font-bold font-['Roboto']"> {movie.title}</h4> 
+                <p className="text-cyan-600 font-light font-['Roboto']">{movie.genre}</p>
+
+            </div>
+            </div>
             {/* <p>{movie.duration}</p> 
             <p>{movie.year}</p> */}
-            <p className="text-white bg-cyan-600 w-[60px] h-[60px] text-center text-3xl font-extrabold rounded-full p-[10px]">{(Math.round(averageRating*10)/10)}</p> 
+            {/* <p className="text-white bg-cyan-600 w-[60px] h-[60px] text-center text-3xl font-extrabold rounded-full p-[10px]">{(Math.round(averageRating*10)/10)}</p>  */}
 
-            <button>
-                More Info
-            </button>
             
         </div>
         </Link>
