@@ -7,6 +7,7 @@ import LoginContainer from './containers/LoginContainer';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
 import Switch from '@mui/material/Switch';
+import Video from './containers/Video';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
   const [users, setUsers] = useState([])
 
-  const [darkMode, setDarkMode] = useState("light");
+  const [darkMode, setDarkMode] = useState("dark");
 
   
   const [checked, setChecked] = React.useState(true);
@@ -51,6 +52,7 @@ function App() {
   }, [user])
 
   return (
+
     <BrowserRouter>
     <div className='bg-heroLite dark:bg-hero bg-cover bg-fixed justify-center'>
       <header className="flex flex-row border-b-[1px] border-white/30 justify-around self-center sticky top-0 backdrop-blur z-50" >
@@ -60,7 +62,7 @@ function App() {
         <ul className="flex flex-row items-center text-white justify-self-center justify-around w-4/12 pl-40 font-['Roboto'] font-light">
           
             
-          <li className="transition-all hover:text-cyan-400 hover:underline underline-offset-4 decoration-1"><Link to="/">Home</Link></li>
+          <li className="transition-all hover:text-cyan-400 hover:underline underline-offset-4 decoration-1"><Link to="/popular">Popular</Link></li>
           <li className="transition-all hover:text-cyan-400 hover:underline underline-offset-4 decoration-1"><Link to="/about">About</Link></li>
           <li className="transition-all hover:text-cyan-400 hover:underline underline-offset-4 decoration-1"><Link to="/leaderboard">Leaderboard</Link></li>
          
@@ -82,7 +84,8 @@ function App() {
       </header>
       <div className='relative'>
         <Routes>
-          <Route path="*" element={<HomeContainer user={user} fetchUserData={fetchUserData}/>} />
+          <Route path="*" element={<Video />} />
+          <Route path="/popular" element={<HomeContainer user={user} fetchUserData={fetchUserData}/>} />
           <Route path="/about" element={<AboutContainer />} />
           <Route path="/leaderboard" element={<LeaderboardContainer users={users}/>} />
           <Route path="/login" element={<LoginContainer users={users} setUser={setUser} setUsers={setUsers}/>} />
