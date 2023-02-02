@@ -47,7 +47,7 @@ const LoginForm = ({users, setUser}) => {
     return (  
 
         <>
-         {/* <ThemeProvider theme={theme}>
+          <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -90,13 +90,11 @@ const LoginForm = ({users, setUser}) => {
                 margin="normal"
                 required
                 fullWidth
-                id="Username"
+                id="userName"
                 label="Username"
-                name="Username"
+                name="UserName"
                 autoComplete="username"
                 autoFocus
-               onChange={handleChange}
-               value= {inputUser}
               />
               <Button
                 type="submit"
@@ -144,9 +142,9 @@ const LoginForm = ({users, setUser}) => {
           </Box>
         </Grid>
       </Grid>
-    </ThemeProvider> */}
+    </ThemeProvider> 
         
-            <form className="logInForm" onSubmit={handleFormSubmit}>
+            {/* <form className="logInForm" onSubmit={handleFormSubmit}>
                 <h2>Already have an account? Log in</h2>
                 <input
                     type="text"
@@ -158,7 +156,7 @@ const LoginForm = ({users, setUser}) => {
                 />
                 <button type="submit">Log In</button>
             </form>
-            
+             */}
       
 
         </>
