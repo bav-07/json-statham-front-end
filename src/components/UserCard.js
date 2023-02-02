@@ -5,15 +5,18 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { styled } from '@mui/material/styles'
+import Box from '@mui/material/Box'
+import Rating from '@mui/material/Rating'
 
 const UserCard = ({user, darkMode}) => {
 
     const reviewComponents = user.reviews.map(review => {
         return (
-            <div className="reviewByUser" key={review.id}>
-                <h4>{review.movie.title}</h4>
+            <div className="reviewByUser m-5 border-b-2 dark:border-slate-900 dark:text-slate-300" key={review.id}>
+                <h4><span className='font-bold'>{review.movie.title}</span></h4>
                 <p>{review.reviewBody}</p>
-                <h4>{review.rating / 2}</h4>
+                <Rating name="star-rating" value={review.rating} precision={0.5} max={10} readOnly/>
+                {/* <h4 className='inline p-2 -mt-5'>{review.rating}/10</h4> */}
             </div>
         )
     })
