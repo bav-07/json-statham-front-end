@@ -191,7 +191,7 @@ const LoginForm = ({users, setUser, setUsers}) => {
           <Grid item>
             {"Or Sign Up"}
           </Grid>
-          <Box component="form"  onSubmit={handleSignupSubmit} sx={{ mt: 1, "& .MuiOutlinedInput-root.Mui-disabled":{"& > fieldset": {border: '1px solid white'}}}}>
+          <Box component="form"  onSubmit={handleSignupSubmit} sx={{ mt: 1,}}>
           <ThemeProvider theme={whiteTheme}>
             <TextField
               margin="normal"
@@ -224,6 +224,7 @@ const LoginForm = ({users, setUser, setUsers}) => {
             </Grid>
             </Box>
           </Box>
+          {logInFailed ? <p className="logInFailed">User does not exist. If you don't have an account, sign up.</p> : ""}
           </Box>
           </Grid>
           </Grid>
