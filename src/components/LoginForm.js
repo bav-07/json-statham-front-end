@@ -81,11 +81,11 @@ const LoginForm = ({users, setUser}) => {
               Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 1 }}>
-            <Grid item>
+                <Grid item>
                   
                   {"Login"}
                
-              </Grid>
+                </Grid>
               <TextField
                 margin="normal"
                 required
@@ -96,6 +96,14 @@ const LoginForm = ({users, setUser}) => {
                 autoComplete="username"
                 autoFocus
               />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
 
                 <Grid item>
                   
@@ -112,19 +120,14 @@ const LoginForm = ({users, setUser}) => {
                 name="Sign Up"
                 autoFocus
               />
-            
-            
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
+        
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Sign Up
               </Button>
               <Grid container>
                 <Grid item xs>
