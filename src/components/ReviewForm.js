@@ -43,17 +43,6 @@ const ReviewForm = ({movie, postReview, user}) => {
                 <h3 className="font-['Inter'] font-extrabold tracking-tight dark:text-white text-3xl">Add a review</h3>
                 <div className="flex">
                 <label className="font-['Inter'] font-medium dark:text-white text-xl mr-2" htmlFor="rating">Rating: </label>
-                {/* <input
-                    type="number"
-                    name="rating"
-                    id="rating"
-                    min="0"
-                    max="10"
-                    step="1"
-                    onChange={handleChange}
-                    value={stateReview.rating}
-                    required/> */}
-                
                 
                 <Rating
                     name="rating"
@@ -79,9 +68,7 @@ const ReviewForm = ({movie, postReview, user}) => {
                 />
 
                 <Button variant="contained" type="submit" className="w-full max-w-[300px] align-middle">GO</Button>
-                {/* <button type="submit" className=" float-right p-2.5 bg-">
-                    Go
-                </button> */}
+
             </form>
         </div>
     );
