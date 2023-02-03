@@ -7,7 +7,7 @@ const ReviewList = ({ reviews }) => {
 
 
     return (  
-        <div  className="w-[50vw] min-w-[700px] m-auto mt-[50px]">
+        <div  className="w-[50vw] min-w-[700px] m-auto mt-[50px] mb-[70px]">
             {reviewComponents}
         </div>
     );

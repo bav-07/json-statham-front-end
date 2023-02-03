@@ -26,7 +26,7 @@ const UserList = ({users, darkMode}) => {
                     placeholder="Search by user name..."
                 ></input>
             </form>
-            <div className="w-[50vw] min-w-[700px] m-auto mt-[50px]">
+            <div className="w-[50vw] min-w-[700px] m-auto mt-[20px] mb-[100px]">
                 {userComponents}
             </div>
             

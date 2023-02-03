@@ -14,6 +14,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 function App() {
@@ -72,7 +73,7 @@ function App() {
           
             
           <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/popular">Popular</Link></li>
-          <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/about">About</Link></li>
+          {/* <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/about">About</Link></li> */}
           <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/leaderboard">Leaderboard</Link></li>
          
         {/* </ul>
@@ -81,7 +82,7 @@ function App() {
         
           {/* <li><Link to="/login">{user !== "" ? <p>Logout</p> : <p>Login</p>}</Link></li> */}
           <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1">{user === "" ? <Link to="/login">Login/Sign-up</Link> : <Link to="/login">Logout</Link>}</li>
-          <li className="transition-all hover:text-cyan-400 font-extrabold hover:cursor underline-offset-4 decoration-1">{user === "" ? <p>Not logged in</p> : <p>User: {user.name}</p>}</li>
+          <li className="transition-all font-extrabold hover:cursor underline-offset-4 decoration-1">{user === "" ? <p>Not logged in</p> : <p className='flex gap-2'><AccountCircleIcon/> {user.name}</p>}</li>
           <Switch
             checked={checked}
             onChange={handleThemeSwitch}
@@ -91,7 +92,7 @@ function App() {
       </ul>
       
       </header>
-      <div className='relative'>
+      <div className='relative flex flex-col flex-grow'>
         <Routes>
           <Route path="/" element={<Video />} />
           {/* <Route path="/popular" element={<HomeContainer user={user} fetchUserData={fetchUserData}/>} > */}
@@ -105,20 +106,20 @@ function App() {
           <Route path="/login" element={<LoginContainer users={users} setUser={setUser} setUsers={setUsers}/>} />
         </Routes>
       </div>
-      <footer>
-      <footer class="fixed bottom-0 backdrop-blur w-full p-4 bg-white/50 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800/50">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">NotIMDb™</a>  Credits to RunTime Terror .
+      {/* <footer> */}
+      <footer class="fixed mt-auto bottom-0 backdrop-blur w-full p-4 bg-white/50 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800/50">
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">NotIMDb™.</a>  Credits to RunTime Terror.
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6 ">Popular</a>
+            <a href="/popular" class="mr-4 hover:underline md:mr-6 ">Popular</a>
         </li>
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Leaderboard</a>
+            <a href="/leaderboard" class="mr-4 hover:underline md:mr-6">Leaderboard</a>
         </li>
-        <li>
+        {/* <li>
             <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>
-        </li>
+        </li> */}
         <li>
             <a href="#" class="hover:underline"></a>
         </li>
@@ -131,7 +132,7 @@ function App() {
 
     </ul>
 </footer>
-      </footer>
+      {/* </footer> */}
 
       </div>
     </BrowserRouter>
