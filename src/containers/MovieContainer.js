@@ -17,7 +17,6 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
         });
         setSelectedMovie(movie);
     }, [movies, id])
-
     
     const [reviews, setReviews] = useState([])
     
