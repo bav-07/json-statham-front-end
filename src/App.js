@@ -72,7 +72,7 @@ function App() {
         <ul className="flex flex-row items-center text-blue-500 dark:text-white justify-self-center justify-around w-1/2 font-['Inter'] font-light">
           
             
-          <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/popular">Popular</Link></li>
+          <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/movies">Movies</Link></li>
           {/* <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/about">About</Link></li> */}
           <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/leaderboard">Leaderboard</Link></li>
          
@@ -97,7 +97,7 @@ function App() {
           <Route path="/" element={<Video />} />
           {/* <Route path="/popular" element={<HomeContainer user={user} fetchUserData={fetchUserData}/>} > */}
             {/* <Routes> */}
-                <Route path="/popular" element={< MovieList movies={movies} />} />
+                <Route path="/movies" element={< MovieList movies={movies} />} />
                 <Route path="/movie/:id" element={<MovieContainer movies={movies} user={user} fetchUserData={fetchUserData} fetchMovieData={fetchMovieData}/>} />
             {/* </Routes> */}
           {/* </Routes></Route> */}
@@ -112,7 +112,7 @@ function App() {
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-            <a href="/popular" class="mr-4 hover:underline md:mr-6 ">Popular</a>
+            <a href="/movies" class="mr-4 hover:underline md:mr-6 ">Movies</a>
         </li>
         <li>
             <a href="/leaderboard" class="mr-4 hover:underline md:mr-6">Leaderboard</a>

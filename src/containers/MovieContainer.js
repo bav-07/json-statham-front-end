@@ -8,7 +8,6 @@ import ReviewForm from "../components/ReviewForm";
 const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
 
     const { id } = useParams();
-    //console.log(id);
 
     const [selectedMovie, setSelectedMovie] = useState("");
 
@@ -16,18 +15,14 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
         const movie = movies.find((movie) => {
             return movie.title === id;
         });
-        // console.log("HI", movie)
         setSelectedMovie(movie);
     }, [movies, id])
 
     
-    //console.log(movie);
-
     const [reviews, setReviews] = useState([])
     
     useEffect (() => {
         if (selectedMovie) {
-            // console.log("FIRST", selectedMovie);
             const fetchData = async () => {
                 const response = await fetch (`http://localhost:8080/reviews/?movieTitle=${selectedMovie.title}`);
                 const data = await response.json();
@@ -41,7 +36,6 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
 
     useEffect (() => {
         if (selectedMovie) {
-            // console.log("SECOND", selectedMovie);
             const fetchData = async () => {
                 const response = await fetch (`http://www.omdbapi.com/?apikey=5b57696a&t=${selectedMovie.title}&y=${selectedMovie.year}`);
                 const data = await response.json();
@@ -52,7 +46,6 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
         }
     }, [selectedMovie])
     
-    // console.log(movieData);
 
     const postReview = async (newReview) => {
         const response = await fetch("http://localhost:8080/reviews", {
@@ -75,7 +68,6 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
     else {
         averageRating = 0;
     }
-    // console.log(averageRating);
 
     return (
         <>
@@ -86,7 +78,6 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
                     <ReviewList reviews={reviews} />
                 </>
                 : ""}
-                {/* <h2>{movie.title}</h2> */}
                 
             </div>
         </>
