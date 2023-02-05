@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# notIMDb
+### React to movies. State your opinions.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>
 
-## Available Scripts
+## Project Description 
 
-In the project directory, you can run:
+This is the front-end to RunTime Terror back-end project https://github.com/bav-07/json-statham-back-end.
 
-### `npm start`
+The project is a movie review webiste which allows users to:
+<ul>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Display a list of all movies
+- Get movies by genre
+- Get movies by name
+- Display a list of all users
+- Display a list of reviews by movie
+- Display a list of reviews by users
+- Add a review
+</ul>
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Insallation Instructions
 
-### `npm test`
+1. Clone the back-end Repo: https://github.com/bav-07/json-statham-back-end.
+2. Run the back-end using the IntelliJ IDE - the server port should configure to 8080 by default.
+3. Clone the front-end Repo: https://github.com/bav-07/json-statham-front-end.
+4. Once the front-end project is opened using VS Code, run npm install in the terminal to install the required node modules.
+5. Run the front-end application using npm start - this should run the application on localhost:3000.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Wireframe 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="1032" alt="Screenshot 2023-02-05 at 12 34 35" src="https://user-images.githubusercontent.com/60015635/216818934-0d4e151b-2b7e-43f7-a7c6-addf58476f9f.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Component diagram 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<img width="706" alt="Screenshot 2023-02-05 at 12 41 08" src="https://user-images.githubusercontent.com/60015635/216819215-3ef49e67-9c13-4e98-b320-827c62d5714f.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Implemented Extensions 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Filter reviews by rating for a specific movie
+- A login form, for adding a new user 
+- Dark Mode Toggle
+- Average Rating for Movie
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Further Extensions 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Delete Users/Reviews
+- Making the website mobile friendly 
+- Cleaner use of states
+- Adding an interactive movie quiz
