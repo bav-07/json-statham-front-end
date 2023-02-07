@@ -1,5 +1,5 @@
 # notIMDb
-### React to movies. State your opinions.
+#### React to movies. State your opinions.
 
 <p>
 
