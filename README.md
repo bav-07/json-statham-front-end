@@ -16,8 +16,8 @@ not IMDb allows registered users to review a variety of movies. Users can get mo
 2. Run the back-end using the IntelliJ IDE - the server port should configure to 8080 by default.
 3. Make sure to create a Postgres database called "movie_reviews_db"
 4. Clone the front-end Repo: https://github.com/bav-07/json-statham-front-end.
-5. Once the front-end project is opened using VS Code, run npm install in the terminal to install the required node modules.
-6. Run the front-end application using npm start - this should run the application on localhost:3000.
+5. Once the front-end project is opened using VS Code, run `npm install` in the terminal to install the required node modules.
+6. Run the front-end application using `npm start` - this should run the application on localhost:3000.
 
 ## Libraries 
 We utilised some external libaries to help us design our website.
