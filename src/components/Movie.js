@@ -4,9 +4,9 @@ const Movie = ({movieData, averageRating}) => {
     
     return (  
         <>
-            <div className="flex flex-row justify-self-center justify-center mt-[120px] dark:text-white">
-                <img className="mx-[15px] h-[500px] min-w-fit shadow-slate-700 dark:shadow-black shadow-xl" src={movieData.Poster} alt={`${movieData.Title} movie poster`}/> 
-                <div className="textContent w-1/2 my-[10px]">
+            <div className="flex max-sm:flex-col flex-row justify-self-center justify-center mt-[120px] dark:text-white max-sm:w-[100vw]">
+                <img className="mx-[15px] h-[500px] max-sm:h-[300px] max-sm:mx-auto max-sm:w-fit min-w-fit shadow-slate-700 dark:shadow-black shadow-xl" src={movieData.Poster} alt={`${movieData.Title} movie poster`}/> 
+                <div className="textContent w-1/2 max-sm:w-screen max-sm:p-5 my-[10px]">
                     <h2 className="font-['Inter'] font-extrabold text-7xl dark:text-slate-200">{movieData.Title}</h2>
                     <div className='flex'>
                         <Rating name="star-rating" value={Math.round(averageRating*10)/10} precision={0.5} max={10} readOnly/>

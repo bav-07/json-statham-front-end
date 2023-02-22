@@ -38,7 +38,7 @@ const ReviewForm = ({movie, postReview, user}) => {
     }
     
     return (  
-        <div className="mx-auto mt-[40px] w-[50vw]">
+        <div className="mx-auto mt-[40px] w-[50vw] max-sm:w-[80vw]">
             <form onSubmit={handleFormSubmit}>
                 <h3 className="font-['Inter'] font-extrabold tracking-tight dark:text-white text-3xl">Add a review</h3>
                 <div className="flex">
