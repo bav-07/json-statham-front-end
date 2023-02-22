@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MovieList from "../components/MovieList";
+import MovieList from "./MovieList";
 import { Route, Routes } from "react-router-dom";
 import MovieContainer from "./MovieContainer";
 

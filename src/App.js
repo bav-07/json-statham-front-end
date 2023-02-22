@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomeContainer from './containers/HomeContainer';
 import MovieContainer from './containers/MovieContainer';
-import MovieList from './components/MovieList';
+import MovieList from './containers/MovieList';
 import AboutContainer from './containers/AboutContainer';
 import LeaderboardContainer from './containers/LeaderboardContainer';
 import LoginContainer from './containers/LoginContainer';

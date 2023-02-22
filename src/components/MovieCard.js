@@ -34,10 +34,10 @@ const MovieCard = ({movie}) => {
             <div className="h-min group">
             <img className="cardImage  w-full object-cover hover:shadow-black shadow-2xl transition-all" src={movieData.Poster} alt={`${movie.title} movie poster`}/> 
             
-            <div className="absolute transition-all top-0 p-5 opacity-0 group-hover:opacity-100 bg-gradient-to-b from-black via-gray-900 h-[18%] w-full">
+            <div className="absolute w-[fit] transition-all top-0 p-5 opacity-0 group-hover:opacity-100 bg-gradient-to-b from-black via-gray-900 h-[18%]">
                 <h4 className="text-white font-bold font-['Roboto']"> {movie.title}</h4> 
                 <p className="text-cyan-600 font-light font-['Roboto']">{movie.genre}</p>
-                <Rating name="star-rating" value={Math.round(averageRating*10)/10} precision={0.5} max={10} readOnly/>
+                <Rating name="star-rating" size="small" value={Math.round(averageRating*10)/10} precision={0.5} max={10} readOnly/>
 
             </div>
             </div>

@@ -54,7 +54,7 @@ const MovieContainer = ({movies, user, fetchUserData, fetchMovieData}) => {
         })
         const savedReview = await response.json()
         setReviews([...reviews, savedReview])
-        fetchUserData()
+        //fetchUserData()
         fetchMovieData()
     }
 
