@@ -16,21 +16,21 @@ const MovieList = ({ movies }) => {
     }) 
     
     return (  
-        <>
-        <div className="grid flex-col justify-items-center w-screen h-[10vw]">
+        <div className="mt-[120px]">
+        <div className="grid flex-col justify-items-center w-screen h-[10vh]">
             {/* <h2 className=" justify-self-center p-50 self-center font-['Inter'] text-slate-100 font-extrabold text-7xl tracking-tighter">Search for movies.</h2> */}
             <form className="movieForm self-center">
-                <input className="searchBar p-5 rounded-full w-[50vw] mt-[120px] drop-shadow-lg font-['Inter'] font-light"
+                <input className="searchBar p-5 rounded-full w-[50vw] min-w-[300px] drop-shadow-lg font-['Inter'] font-light"
                     onChange={handleChange}
                     value={searchTerm}
                     placeholder="Search by title or genre..."
                 ></input> 
             </form>
         </div>
-        <div className="mt-8 pl-52 flex overflow-x-scroll whitespace-nowrap">
+        <div className="mt-8 pl-[10vw] flex overflow-x-scroll whitespace-nowrap">
             {movieComponents}
         </div>
-        </>
+        </div>
        
     );
 }

@@ -5,6 +5,9 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
+    screens: {
+      'max-sm' : {'max': '639px'}
+    },
     extend: {
       backgroundImage: {
         'hero' : "url('https://tailwindcss.com/_next/static/media/blog-post-form-dark@90.5b274bea.jpg')",

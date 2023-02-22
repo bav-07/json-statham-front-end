@@ -50,7 +50,7 @@ const SignUpForm = ({users, setUser, setUsers}) => {
     }
 
     return (  
-        <div className="flex flex-col justify-center self-center h-fit w-[70%] bg-slate-800/20 backdrop-blur shadow-2xl p-20 text-center  mx-auto">
+        <div className="mt-[5vh] flex flex-col justify-center self-center h-fit w-[70%] bg-slate-800/20 backdrop-blur shadow-2xl p-[20px] text-center  mx-auto">
             <form className="signUpForm flex flex-col justify-center font-['Inter']" onSubmit={handleFormSubmit}>
               <div className="justify-center mb-3">
                     <LockOpenIcon fontSize="large" className="text-white"/>

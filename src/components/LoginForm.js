@@ -33,14 +33,14 @@ const LoginForm = ({users, setUser}) => {
     
     return (  
 
-        <div className="flex flex-col justify-center self-center h-screen w-[70%] p-20 text-center  mx-auto">
+        <div className="mt-[5vh] flex flex-col justify-center self-center h-screen w-[70%] p-[5px] text-center  mx-auto">
             <form className="logInForm flex flex-col justify-center font-['Inter']" onSubmit={handleFormSubmit}>
                 <div className="justify-center mb-3">
                     <LoginIcon fontSize="large" className="dark:text-white"/>
                 </div>
                 
                 <h2 className="font-['Inter'] font-extrabold text-3xl tracking-tighter dark:text-white text-slate-900">Already have an account? Log in</h2>
-                <input className="text-center my-[3vh] w-[100%] mx-auto p-5 rounded-lg font-['Inter']"
+                <input className="text-center my-[3vh] w-[100%] min-w-[200px] mx-auto p-5 rounded-lg font-['Inter']"
                     type="text"
                     placeholder="Your name"
                     name="userName"
