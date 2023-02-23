@@ -112,7 +112,7 @@ function App() {
               </div>
             {
               showLinks ? 
-              <div className='absolute right-0 text-right backdrop-brightness-50 bg-gradient-to-r from-white/80 via-cyan-100/80 to-teal-100/80 dark:from-blue-900/80 dark:via-cyan-900/80 dark:to-teal-900/80 p-3 gap-2 flex flex-col w-max rounded-xl'>
+              <div className='absolute right-0 text-right backdrop-brightness-50 bg-gradient-to-r from-white/80 via-cyan-100/80 to-teal-100/80 dark:from-blue-900/80 dark:via-cyan-900/80 dark:to-teal-900/80 p-3 gap-2 flex flex-col w-max rounded-md z-50'>
                 <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link onClick={() => setShowLinks(false)} to="/movies">Movies</Link></li>
                 <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link onClick={() => setShowLinks(false)} to="/leaderboard">Leaderboard</Link></li>
               
@@ -150,7 +150,7 @@ function App() {
         </Routes>
       </div>
       {/* <footer> */}
-      <footer class="fixed mt-auto bottom-0 backdrop-blur w-full p-4 bg-white/50 shadow flex items-center justify-between md:p-6 dark:bg-gray-800/50">
+      <footer class="fixed mt-auto bottom-0 backdrop-blur w-full p-4 bg-white/80 shadow flex items-center justify-between md:p-6 dark:bg-gray-800/50">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">NotIMDb™.</a>  Credits to RunTime Terror.
         </span>
         <ul class="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
