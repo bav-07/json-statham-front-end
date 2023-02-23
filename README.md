@@ -6,9 +6,13 @@
 ## Project Description
 The backend API we recieved was the movie review API by RunTime Terror https://github.com/bav-07/json-statham-back-end.
 
-not IMDb allows registered users to review a variety of movies. Users can get movies by name and genre, display reviews by movie and users using the filter function. We have implemented a leaderboard feature where users can gain points depending on the number of reviews they post. 
+not IMDb allows registered users to review a variety of movies. Users can get movies by name and genre, display reviews by movie and users using the filter function. We have implemented a leaderboard feature where users can gain points depending on the number of reviews they post.
+
+Play the video below to see the site in action.
 
 </p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1TBRj5JrLW4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscpoe; picture-in-picture" allowfullscreen></iframe>
 
 ## Insallation Instructions
 
