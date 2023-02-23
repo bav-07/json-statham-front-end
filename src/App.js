@@ -15,6 +15,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import MenuIcon from '@mui/icons-material/Menu';
 
 
 function App() {
@@ -23,6 +24,32 @@ function App() {
   const [users, setUsers] = useState([])
   const [darkMode, setDarkMode] = useState("dark");
   const [checked, setChecked] = React.useState(true);
+  const [isDesktop, setDesktop] = useState(true);
+  const [showLinks, setShowLinks] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 1000) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 1000) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    }
+
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
+
+  }, []);
+
+  const hamburgerClick = () => {
+    setShowLinks(showLinks ? false : true);
+  }
   
   useEffect(() => {
     if (darkMode === "dark") {
@@ -68,14 +95,37 @@ function App() {
       <header className="flex flex-row border-b-[1px] border-white/30 justify-around self-center fixed w-full top-0 backdrop-blur z-50" >
         
         <Link to="/"><h1 className="text-3xl bg-gradient-to-r from-blue-400 to-cyan-400 p-2 m-5 rounded-lg font-extrabold font-['Anton'] text-slate-900 tracking-wide">notIMDb</h1></Link>
-        <ul className="flex flex-row items-center text-blue-500 dark:text-white justify-self-center justify-around w-1/2 font-['Inter'] font-light">
+        <ul className="flex flex-row items-center text-blue-500 dark:text-white justify-self-center justify-around font-['Inter'] font-light">
           
+          {isDesktop ? (
+            <div className='flex justify-evenly w-[50vw]'>
+            <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/movies">Movies</Link></li>
+            <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/leaderboard">Leaderboard</Link></li>
+           
+            <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1">{user === "" ? <Link to="/login">Login/Sign-up</Link> : <Link to="/login">Logout</Link>}</li>
+            <li className="transition-all font-extrabold hover:cursor underline-offset-4 decoration-1">{user === "" ? <p>Not logged in</p> : <p className='flex gap-2'><AccountCircleIcon/> {user.name}</p>}</li>
+            </div>
+          ) : (
+            <div className='relative'>
+              <div onClick={() => hamburgerClick()} className='hover:cursor-pointer group hover:bg-slate-100/20 rounded-full p-2 transition-all duration-150'>
+                <MenuIcon className='group-hover:scale-105 transition-all duration-1000'/>
+              </div>
+            {
+              showLinks ? 
+              <div className='absolute right-0 text-right backdrop-brightness-50 bg-gradient-to-r from-white/80 via-cyan-100/80 to-teal-100/80 dark:from-blue-900/80 dark:via-cyan-900/80 dark:to-teal-900/80 p-3 gap-2 flex flex-col w-max rounded-xl'>
+                <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link onClick={() => setShowLinks(false)} to="/movies">Movies</Link></li>
+                <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link onClick={() => setShowLinks(false)} to="/leaderboard">Leaderboard</Link></li>
+              
+                <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1">{user === "" ? <Link  onClick={() => setShowLinks(false)} to="/login">Login/Sign-up</Link> : <Link onClick={() => setShowLinks(false)} to="/login">Logout</Link>}</li>
+                <li className="transition-all font-extrabold hover:cursor underline-offset-4 decoration-1">{user === "" ? <p>Not logged in</p> : <p className='flex gap-2'><AccountCircleIcon/> {user.name}</p>}</li>
             
-          <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/movies">Movies</Link></li>
-          <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1"><Link to="/leaderboard">Leaderboard</Link></li>
-         
-          <li className="transition-all hover:text-cyan-400 font-medium hover:underline underline-offset-4 decoration-1">{user === "" ? <Link to="/login">Login/Sign-up</Link> : <Link to="/login">Logout</Link>}</li>
-          <li className="transition-all font-extrabold hover:cursor underline-offset-4 decoration-1">{user === "" ? <p>Not logged in</p> : <p className='flex gap-2'><AccountCircleIcon/> {user.name}</p>}</li>
+              </div> : <></>
+            }
+            </div>
+            )
+            
+          }  
+          
           <Switch
             checked={checked}
             onChange={handleThemeSwitch}
