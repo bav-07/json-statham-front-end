@@ -12,7 +12,7 @@ Play the video below to see the site in action.
 
 </p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1TBRj5JrLW4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscpoe; picture-in-picture" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=1TBRj5JrLW4"><img src="public/movieImage.png" width="500>"/></a>
 
 ## Insallation Instructions
 
